@@ -17,12 +17,10 @@ public class CountryMain implements Serializable {
     }
 
     public CountryMain() {
-
     }
 
     public CountryMain(Integer countryId) {
         this.countryId = countryId;
-
     }
 
     public int getCountryId() {
@@ -65,7 +63,6 @@ public class CountryMain implements Serializable {
         CountryMain countryData = (CountryMain) o;
         return countryId == countryData.countryId && year == countryData.year &&
                 importValue == countryData.importValue && exportValue == countryData.exportValue;
-
     }
 
     @Override

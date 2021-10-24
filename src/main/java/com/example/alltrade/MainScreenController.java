@@ -351,7 +351,7 @@ public class MainScreenController {
     void showUsers(ActionEvent event) {
         pnUsersView.setVisible(true);
         new FadeInDown(pnUsersView).play();
-        //pnUsersView.toFront();
+        pnUsersView.toFront();
         pnCountryView.setVisible(false);
         pnCategoryView.setVisible(false);
         pnMainView.setVisible(false);
