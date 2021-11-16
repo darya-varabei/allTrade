@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -215,6 +216,12 @@ public class MainScreenController {
     private ComboBox<?> cmbChooseCountry1;
 
     @FXML
+    private Pane pnTablePane;
+
+    @FXML
+    private BorderPane mainPane;
+
+    @FXML
     void chowCategories(ActionEvent event) {
         pnCategoryView.setVisible(true);
         new FadeInUp(pnCategoryView).play();
@@ -328,6 +335,9 @@ public class MainScreenController {
         btnPlotPaneCountry.setStyle("-fx-background-color: #fafafa; -fx-background-radius: 5; -fx-text-fill: #2F3763");
         new FadeInUp(pnChooseTableCountry).play();
         pnChooseTableCountry.toFront();
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CountryTable");
+        mainPane.setCenter(view);
     }
 
     @FXML
@@ -365,11 +375,11 @@ public class MainScreenController {
 
     @FXML
     void menuEndHover(MouseEvent event) {
-            ((Button) event.getSource()).setStyle("-fx-background-color: 0;");
+        ((Button)event.getSource()).setUnderline(false);
     }
 
     @FXML
     void menuOnHover(MouseEvent event) {
-            ((Button) event.getSource()).setStyle("-fx-background-color: #C1CED6;");
+        ((Button)event.getSource()).setUnderline(true);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.alltrade.CountryTableController;
+package com.example.alltrade;
 
 import com.example.alltrade.countryInfo.CountryImportExport;
 import javafx.beans.value.ObservableValue;
@@ -24,16 +24,16 @@ public class CountryTableController implements Initializable {
     private TableView<CountryImportExport> tableCountry;
 
     @FXML
-    private TableColumn<?, ?> yearColumn;
+    private TableColumn<CountryImportExport, Integer> yearColumn;
 
     @FXML
-    private TableColumn<?, ?> importColumn;
+    private TableColumn<CountryImportExport, Double> importColumn;
 
     @FXML
-    private TableColumn<?, ?> ExportColumn;
+    private TableColumn<CountryImportExport, Double> ExportColumn;
 
     @FXML
-    private TableColumn<?, ?> netExportColumn;
+    private TableColumn<CountryImportExport, Double> netExportColumn;
 
     @FXML
     private Label lblSearch;
@@ -45,10 +45,10 @@ public class CountryTableController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
-        importColumn.setCellValueFactory(new PropertyValueFactory<>("importValue"));
-        ExportColumn.setCellValueFactory(new PropertyValueFactory<>("exportValue"));
-        netExportColumn.setCellValueFactory(new PropertyValueFactory<>("netExportValue"));
+        yearColumn.setCellValueFactory(new PropertyValueFactory<>("yearColumn"));
+        importColumn.setCellValueFactory(new PropertyValueFactory<>("importColumn"));
+        ExportColumn.setCellValueFactory(new PropertyValueFactory<>("ExportColumn"));
+        netExportColumn.setCellValueFactory(new PropertyValueFactory<>("netExportColumn"));
 
         CountryImportExport case1 = new CountryImportExport(1, 2009, 2345.89, 12456.9,3256.0);
         CountryImportExport case2 = new CountryImportExport(1, 2009, 2345.89, 12456.9,3256.0);

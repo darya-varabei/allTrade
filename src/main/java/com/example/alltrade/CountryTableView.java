@@ -16,15 +16,15 @@ public class CountryTableView extends Application {
 
         // Create column UserName (Data type of String).
         TableColumn<CommonExport, String> userNameCol //
-                = new TableColumn<CommonExport, String>("User Name");
+                = new TableColumn<CommonExport, String>("Year");
 
         // Create column Email (Data type of String).
         TableColumn<CommonExport, String> emailCol//
-                = new TableColumn<CommonExport, String>("Email");
+                = new TableColumn<CommonExport, String>("Import");
 
         // Create column FullName (Data type of String).
         TableColumn<CommonExport, String> fullNameCol//
-                = new TableColumn<CommonExport, String>("Full Name");
+                = new TableColumn<CommonExport, String>("Export");
 
         // Create 2 sub column for FullName.
         TableColumn<CommonExport, String> firstNameCol //
