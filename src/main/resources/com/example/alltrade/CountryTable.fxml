@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="302.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.CountryTableController">
+<AnchorPane prefHeight="302.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.CountryTableController">
    <children>
       <TableView fx:id="tableCountry" editable="true" layoutY="47.0" prefHeight="255.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;">
         <columns>

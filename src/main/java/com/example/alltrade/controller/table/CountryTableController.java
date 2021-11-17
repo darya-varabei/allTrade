@@ -1,4 +1,4 @@
-package com.example.alltrade.controller;
+package com.example.alltrade.controller.table;
 
 import com.example.alltrade.model.country.CountryImportExport;
 import javafx.beans.value.ObservableValue;
@@ -45,10 +45,10 @@ public class CountryTableController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        yearColumn.setCellValueFactory(new PropertyValueFactory<>("yearColumn"));
-        importColumn.setCellValueFactory(new PropertyValueFactory<>("importColumn"));
-        ExportColumn.setCellValueFactory(new PropertyValueFactory<>("ExportColumn"));
-        netExportColumn.setCellValueFactory(new PropertyValueFactory<>("netExportColumn"));
+        yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
+        importColumn.setCellValueFactory(new PropertyValueFactory<>("importValue"));
+        ExportColumn.setCellValueFactory(new PropertyValueFactory<>("ExportValue"));
+        netExportColumn.setCellValueFactory(new PropertyValueFactory<>("netExport"));
 
         CountryImportExport case1 = new CountryImportExport(1, 2009, 2345.89, 12456.9,3256.0);
         CountryImportExport case2 = new CountryImportExport(1, 2009, 2345.89, 12456.9,3256.0);
@@ -85,7 +85,7 @@ public class CountryTableController implements Initializable {
   });
 
         SortedList<CountryImportExport> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind((ObservableValue<? extends Comparator<? super CountryImportExport>>) tableCountry.comparatorProperty());
+        sortedData.comparatorProperty().bind((tableCountry.comparatorProperty()));// tableCountry.comparatorProperty());
         tableCountry.setItems(sortedData);
     }
 }

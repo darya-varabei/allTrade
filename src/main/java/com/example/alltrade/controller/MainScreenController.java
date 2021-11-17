@@ -401,6 +401,5 @@ public class MainScreenController {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryCatTable.fxml");
         mainPane.setCenter(view);
-        view.toFront();
     }
 }
