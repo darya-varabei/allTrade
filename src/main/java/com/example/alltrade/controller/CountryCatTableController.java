@@ -1,4 +1,4 @@
-package com.example.alltrade;
+package com.example.alltrade.controller;
 
 public class CountryCatTableController {
 }

@@ -1,4 +1,4 @@
-package com.example.alltrade.model;
+package com.example.alltrade.model.country;
 
 import java.util.Objects;
 

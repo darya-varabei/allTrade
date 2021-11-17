@@ -1,4 +1,4 @@
-package com.example.alltrade.model;
+package com.example.alltrade.model.category;
 
 import java.io.Serializable;
 import java.util.Objects;

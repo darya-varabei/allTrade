@@ -1,6 +1,6 @@
-package com.example.alltrade;
+package com.example.alltrade.controller;
 
-import com.example.alltrade.model.CountryImportExport;
+import com.example.alltrade.model.country.CountryImportExport;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

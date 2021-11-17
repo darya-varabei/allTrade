@@ -1,4 +1,4 @@
-package com.example.alltrade;
+package com.example.alltrade.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

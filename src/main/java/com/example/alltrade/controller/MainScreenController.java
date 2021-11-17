@@ -1,6 +1,7 @@
-package com.example.alltrade;
+package com.example.alltrade.controller;
 
 import animatefx.animation.*;
+import com.example.alltrade.FxmlLoader;
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.PieChart;

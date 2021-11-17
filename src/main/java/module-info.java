@@ -11,4 +11,10 @@ module com.example.alltrade {
     exports com.example.alltrade;
     exports com.example.alltrade.model;
     opens com.example.alltrade.model to javafx.fxml;
+    exports com.example.alltrade.controller;
+    opens com.example.alltrade.controller to javafx.fxml;
+    exports com.example.alltrade.model.category;
+    opens com.example.alltrade.model.category to javafx.fxml;
+    exports com.example.alltrade.model.country;
+    opens com.example.alltrade.model.country to javafx.fxml;
 }

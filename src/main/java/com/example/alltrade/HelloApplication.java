@@ -1,6 +1,7 @@
 package com.example.alltrade;
 
 import animatefx.animation.FadeIn;
+import com.example.alltrade.controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
