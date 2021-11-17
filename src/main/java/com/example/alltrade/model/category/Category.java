@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Category implements Serializable {
+    protected Integer countryId;
+    protected String country;
     protected Integer year;
-    protected Double totalImport;
-    protected Double totalExport;
 
-    public Category(Integer year, Double totalImport, Double totalExport) {
+    public Category(Integer year, Integer countryId, String country) {
         this.year = year;
-        this.totalImport = totalImport;
-        this.totalExport = totalExport;
+        this.countryId = countryId;
+        this.country = country;
     }
 
     public Category() {
@@ -25,20 +25,20 @@ public class Category implements Serializable {
         this.year = year;
     }
 
-    public double getImportValue() {
-        return totalImport;
+    public int getCountryId() {
+        return countryId;
     }
 
-    public void setImportValue(double totalImport) {
-        this.totalImport = totalImport;
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
     }
 
-    public double getExportValue() {
-        return totalExport;
+    public String getCountry() {
+        return country;
     }
 
-    public void setExportValue(double totalExport) {
-        this.totalExport = totalExport;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     @Override
@@ -47,11 +47,11 @@ public class Category implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Category categoryData = (Category) o;
         return year == categoryData.year &&
-                totalImport == categoryData.totalImport && totalExport == categoryData.totalExport;
+                countryId == categoryData.countryId && country == categoryData.country;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(year, totalImport, totalExport);
+        return Objects.hash(year, countryId, country);
     }
 }

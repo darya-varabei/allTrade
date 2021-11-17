@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
         LoginController firstPaneController = (LoginController) firstPage.getController();
         firstPaneController.setSecondScene(secondScene);
 
-        stage.setTitle("Hello!");
+        stage.setTitle("AllTrade");
         stage.setScene(scene);
         stage.show();
 
