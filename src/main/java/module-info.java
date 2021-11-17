@@ -9,4 +9,6 @@ module com.example.alltrade {
 
     opens com.example.alltrade to javafx.fxml;
     exports com.example.alltrade;
+    exports com.example.alltrade.model;
+    opens com.example.alltrade.model to javafx.fxml;
 }

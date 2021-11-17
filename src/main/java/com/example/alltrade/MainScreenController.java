@@ -223,18 +223,20 @@ public class MainScreenController {
 
     @FXML
     void chowCategories(ActionEvent event) {
-        pnCategoryView.setVisible(true);
-        new FadeInUp(pnCategoryView).play();
-        pnCountryView.setVisible(false);
-        pnUsersView.setVisible(false);
-        pnMainView.setVisible(false);
-        pnSettingsView.setVisible(false);
-        btnCategories.setStyle("-fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
-        btnCountries.setStyle("-fx-text-fill: #fafafa");
-        btnMain.setStyle("-fx-text-fill: #fafafa");
-        btnUsers.setStyle("-fx-text-fill: #fafafa");
-        btnSettings.setStyle("-fx-text-fill: #fafafa");
-        pnCategoryView.toFront();
+        if (pnCategoryView.isVisible() == false) {
+            pnCategoryView.setVisible(true);
+            new FadeInUp(pnCategoryView).play();
+            pnCountryView.setVisible(false);
+            pnUsersView.setVisible(false);
+            pnMainView.setVisible(false);
+            pnSettingsView.setVisible(false);
+            btnCategories.setStyle("-fx-background-color: #2F3763; -fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
+            btnCountries.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnMain.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnUsers.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnSettings.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            pnCategoryView.toFront();
+        }
     }
 
     @FXML
@@ -244,18 +246,20 @@ public class MainScreenController {
 
     @FXML
     void showCountry(ActionEvent event) {
-        pnCountryView.setVisible(true);
-        new FadeInUp(pnCountryView).play();
-        pnCountryView.toFront();
-        pnUsersView.setVisible(false);
-        pnCategoryView.setVisible(false);
-        pnMainView.setVisible(false);
-        pnSettingsView.setVisible(false);
-        btnCountries.setStyle("-fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
-        btnCategories.setStyle("-fx-text-fill: #fafafa");
-        btnMain.setStyle("-fx-text-fill: #fafafa");
-        btnUsers.setStyle("-fx-text-fill: #fafafa");
-        btnSettings.setStyle("-fx-text-fill: #fafafa");
+        if (pnCountryView.isVisible() == false) {
+            pnCountryView.setVisible(true);
+            new FadeInUp(pnCountryView).play();
+            pnCountryView.toFront();
+            pnUsersView.setVisible(false);
+            pnCategoryView.setVisible(false);
+            pnMainView.setVisible(false);
+            pnSettingsView.setVisible(false);
+            btnCountries.setStyle("-fx-background-color: #2F3763; -fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
+            btnCategories.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnMain.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnUsers.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnSettings.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+        }
     }
 
     @FXML
@@ -290,18 +294,20 @@ public class MainScreenController {
 
     @FXML
     void showMainPage(ActionEvent event) {
-        pnMainView.setVisible(true);
-        new FadeInUp(pnMainView).play();
-        pnMainView.toFront();
-        pnCountryView.setVisible(false);
-        pnCategoryView.setVisible(false);
-        pnUsersView.setVisible(false);
-        pnSettingsView.setVisible(false);
-        btnMain.setStyle("-fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
-        btnCategories.setStyle("-fx-text-fill: #fafafa");
-        btnCountries.setStyle("-fx-text-fill: #fafafa");
-        btnUsers.setStyle("-fx-text-fill: #fafafa");
-        btnSettings.setStyle("-fx-text-fill: #fafafa");
+        if (pnMainView.isVisible() == false) {
+            pnMainView.setVisible(true);
+            new FadeInUp(pnMainView).play();
+            pnMainView.toFront();
+            pnCountryView.setVisible(false);
+            pnCategoryView.setVisible(false);
+            pnUsersView.setVisible(false);
+            pnSettingsView.setVisible(false);
+            btnMain.setStyle("-fx-background-color: #2F3763; -fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
+            btnCategories.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnCountries.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnUsers.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnSettings.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+        }
     }
 
     @FXML
@@ -314,30 +320,29 @@ public class MainScreenController {
 
     @FXML
     void showSettings(ActionEvent event) {
-        pnSettingsView.setVisible(true);
-        new FadeInDown(pnSettingsView).play();
-        pnCountryView.setVisible(false);
-        pnCategoryView.setVisible(false);
-        pnMainView.setVisible(false);
-        pnUsersView.setVisible(false);
-        pnSettingsView.toFront();
-        btnSettings.setStyle("-fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
-        btnCategories.setStyle("-fx-text-fill: #fafafa");
-        btnMain.setStyle("-fx-text-fill: #fafafa");
-        btnUsers.setStyle("-fx-text-fill: #fafafa");
-        btnCountries.setStyle("-fx-text-fill: #fafafa");
+        if (pnSettingsView.isVisible() == false) {
+            pnSettingsView.setVisible(true);
+            new FadeInDown(pnSettingsView).play();
+            pnCountryView.setVisible(false);
+            pnCategoryView.setVisible(false);
+            pnMainView.setVisible(false);
+            pnUsersView.setVisible(false);
+            pnSettingsView.toFront();
+            btnSettings.setStyle("-fx-background-color: #2F3763; -fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
+            btnCategories.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnMain.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnUsers.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnCountries.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+        }
     }
 
     @FXML
     void showTablesCountry(ActionEvent event) {
 
-        btnTablePaneCountry.setStyle("-fx-background-color: #2F3763; -fx-background-radius: 5;  -fx-text-fill: #FAFAFA");
-        btnPlotPaneCountry.setStyle("-fx-background-color: #fafafa; -fx-background-radius: 5; -fx-text-fill: #2F3763");
-        new FadeInUp(pnChooseTableCountry).play();
-        pnChooseTableCountry.toFront();
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPane("CountryTable");
-        mainPane.setCenter(view);
+            btnTablePaneCountry.setStyle("-fx-background-color: #2F3763; -fx-background-radius: 5;  -fx-text-fill: #FAFAFA");
+            btnPlotPaneCountry.setStyle("-fx-background-color: #fafafa; -fx-background-radius: 5; -fx-text-fill: #2F3763");
+            new FadeInUp(pnChooseTableCountry).play();
+            pnChooseTableCountry.toFront();
     }
 
     @FXML
@@ -359,18 +364,20 @@ public class MainScreenController {
 
     @FXML
     void showUsers(ActionEvent event) {
-        pnUsersView.setVisible(true);
-        new FadeInDown(pnUsersView).play();
-        pnUsersView.toFront();
-        pnCountryView.setVisible(false);
-        pnCategoryView.setVisible(false);
-        pnMainView.setVisible(false);
-        pnSettingsView.setVisible(false);
-        btnUsers.setStyle("-fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
-        btnCategories.setStyle("-fx-text-fill: 0");
-        btnMain.setStyle("-fx-text-fill: 0");
-        btnSettings.setStyle("-fx-text-fill: 0");
-        btnCountries.setStyle("-fx-text-fill: 0");
+        if (pnUsersView.isVisible() == false) {
+            pnUsersView.setVisible(true);
+            new FadeInDown(pnUsersView).play();
+            pnUsersView.toFront();
+            pnCountryView.setVisible(false);
+            pnCategoryView.setVisible(false);
+            pnMainView.setVisible(false);
+            pnSettingsView.setVisible(false);
+            btnUsers.setStyle("-fx-background-color: #2F3763; -fx-text-fill: linear-gradient(from 0px 0px to 43px 15px, #50D5A8, #B3DE83)");
+            btnCategories.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnMain.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnSettings.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            btnCountries.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+        }
     }
 
     @FXML
@@ -381,5 +388,18 @@ public class MainScreenController {
     @FXML
     void menuOnHover(MouseEvent event) {
         ((Button)event.getSource()).setUnderline(true);
+    }
+
+    public void showCountryCommonTable(ActionEvent actionEvent) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CountryTable.fxml");
+        mainPane.setCenter(view);
+    }
+
+    public void showCountryCatTable(ActionEvent actionEvent) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CountryCatTable.fxml");
+        mainPane.setCenter(view);
+        view.toFront();
     }
 }

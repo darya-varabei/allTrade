@@ -1,8 +1,8 @@
-package com.example.alltrade.countryInfo;
+package com.example.alltrade.model;
 
 import java.util.Objects;
 
-public class CountryCategory extends CountryMain{
+public class CountryCategory extends CountryMain {
 //    private Integer countryId;
 //    private Integer year;
     private String category;

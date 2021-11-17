@@ -1,9 +1,5 @@
-package com.example.alltrade.countryInfo;
+package com.example.alltrade.model;
 
-import com.example.alltrade.model.Country;
-import javafx.scene.image.Image;
-
-import java.io.Serializable;
 import java.util.Objects;
 
 public class CountryImportExport extends CountryMain {

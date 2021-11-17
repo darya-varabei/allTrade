@@ -1,5 +1,6 @@
 package com.example.alltrade;
 
+import com.example.alltrade.model.CommonExport;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

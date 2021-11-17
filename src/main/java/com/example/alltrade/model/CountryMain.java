@@ -1,4 +1,4 @@
-package com.example.alltrade.countryInfo;
+package com.example.alltrade.model;
 
 import java.io.Serializable;
 import java.util.Objects;

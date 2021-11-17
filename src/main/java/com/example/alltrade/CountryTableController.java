@@ -1,6 +1,6 @@
 package com.example.alltrade;
 
-import com.example.alltrade.countryInfo.CountryImportExport;
+import com.example.alltrade.model.CountryImportExport;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
