@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="302.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.CountryCatTableController">
     <children>
-        <TableView fx:id="tableCatCountry" editable="true" layoutY="47.0" prefHeight="255.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;">
+        <TableView fx:id="tableCatCountry" editable="true" layoutY="47.0" prefHeight="255.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
             <columns>
                 <TableColumn fx:id="yearColumn" prefWidth="75.0" text="Год" />
                 <TableColumn fx:id="categoryColumn" prefWidth="130.0" text="Категория" />

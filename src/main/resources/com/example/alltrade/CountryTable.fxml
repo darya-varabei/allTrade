@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="302.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.CountryTableController">
+<AnchorPane prefHeight="302.0" prefWidth="461.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.CountryTableController">
    <children>
-      <TableView fx:id="tableCountry" editable="true" layoutY="47.0" prefHeight="255.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;">
+      <TableView fx:id="tableCountry" editable="true" layoutY="47.0" prefHeight="255.0" prefWidth="465.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
         <columns>
-          <TableColumn fx:id="yearColumn" prefWidth="75.0" text="Год" />
-          <TableColumn fx:id="importColumn" prefWidth="130.0" text="Импорт" />
-            <TableColumn fx:id="ExportColumn" prefWidth="130.0" text="Экспорт" />
-            <TableColumn fx:id="netExportColumn" prefWidth="139.0" text="Чистый экспорт" />
+          <TableColumn fx:id="yearColumn" prefWidth="75.0" resizable="false" text="Год" />
+          <TableColumn fx:id="importColumn" prefWidth="130.0" resizable="false" text="Импорт" />
+            <TableColumn fx:id="ExportColumn" prefWidth="130.0" resizable="false" text="Экспорт" />
+            <TableColumn fx:id="netExportColumn" prefWidth="130.0" resizable="false" text="Чистый экспорт" />
         </columns>
       </TableView>
       <Label fx:id="lblSearch" layoutX="14.0" layoutY="20.0" text="Поиск по таблице">
