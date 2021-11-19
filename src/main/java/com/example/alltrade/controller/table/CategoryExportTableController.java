@@ -41,8 +41,8 @@ public class CategoryExportTableController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
-        countryColumn.setCellValueFactory(new PropertyValueFactory<>("exportValue"));
-        exportColumn.setCellValueFactory(new PropertyValueFactory<>("importValue"));
+        countryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
+        exportColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
 
         CategoryValue case1 = new CategoryValue(1, "Italy", 2009, 12456.9);
         CategoryValue case2 = new CategoryValue(1, "Sweden", 2009, 12456.9);

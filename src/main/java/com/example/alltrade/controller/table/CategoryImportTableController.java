@@ -25,7 +25,7 @@ public class CategoryImportTableController implements Initializable {
     private TableColumn<CategoryValue, Integer> yearColumn;
 
     @FXML
-    private TableColumn<CategoryValue, Double> countryColumn;
+    private TableColumn<CategoryValue, String> countryColumn;
 
     @FXML
     private TableColumn<CategoryValue, Double> importColumn;
@@ -42,13 +42,13 @@ public class CategoryImportTableController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
         countryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
-        importColumn.setCellValueFactory(new PropertyValueFactory<>("importValue"));
+        importColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
 
-        CategoryValue case1 = new CategoryValue(1, "Italy", 2009, 12456.9);
-        CategoryValue case2 = new CategoryValue(1, "Sweden", 2009, 12456.9);
-        CategoryValue case3 = new CategoryValue(1, "Spain", 2009, 12456.9);
-        CategoryValue case4 = new CategoryValue(1, "Russia", 2009, 12456.9);
-        CategoryValue case5 = new CategoryValue(1, "USA", 2009, 12456.9);
+        CategoryValue case1 = new CategoryValue(1, "Germany", 2009, 12456.9);
+        CategoryValue case2 = new CategoryValue(1, "UK", 2009, 12456.9);
+        CategoryValue case3 = new CategoryValue(1, "Netherlands", 2009, 12456.9);
+        CategoryValue case4 = new CategoryValue(1, "China", 2009, 12456.9);
+        CategoryValue case5 = new CategoryValue(1, "Poland", 2009, 12456.9);
         dataList.addAll(case1, case2, case3, case4, case5);
 
         FilteredList<CategoryValue> filteredData = new FilteredList<>(dataList, b -> true);
@@ -69,9 +69,6 @@ public class CategoryImportTableController implements Initializable {
                 else if (String.valueOf(caseCase.getCountry()).indexOf(lowerCaseFilter) != -1) {
                     return true;
                 }
-                else if(String.valueOf(caseCase.getYear()).indexOf(lowerCaseFilter) != -1) {
-                    return true;
-                }
                 else {
                     return false;
                 }
@@ -79,7 +76,7 @@ public class CategoryImportTableController implements Initializable {
         });
 
         SortedList<CategoryValue> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind((tableCatImport.comparatorProperty()));// tableCountry.comparatorProperty());
+        sortedData.comparatorProperty().bind((tableCatImport.comparatorProperty()));
         tableCatImport.setItems(sortedData);
     }
 }

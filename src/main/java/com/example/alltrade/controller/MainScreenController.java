@@ -145,6 +145,9 @@ public class MainScreenController {
     private Pane pnCategoryView;
 
     @FXML
+    private Pane pnCategoryTable;
+
+    @FXML
     private Pane pnDataViewCat;
 
     @FXML
@@ -221,6 +224,9 @@ public class MainScreenController {
 
     @FXML
     private BorderPane mainPane;
+
+    @FXML
+    private BorderPane pnCatView;
 
     @FXML
     void chowCategories(ActionEvent event) {
@@ -401,5 +407,17 @@ public class MainScreenController {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryCatTable.fxml");
         mainPane.setCenter(view);
+    }
+
+    public void showCatImportTable(ActionEvent actionEvent) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CategoryImportTable.fxml");
+        pnCatView.setCenter(view);
+    }
+
+    public void showCatExport(ActionEvent actionEvent) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CategoryExportTable.fxml");
+        pnCatView.setCenter(view);
     }
 }
