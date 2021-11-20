@@ -83,7 +83,7 @@ public class CountryCatTableController implements Initializable {
         });
 
         SortedList<CountryCategory> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind((tableCatCountry.comparatorProperty()));// tableCountry.comparatorProperty());
+        sortedData.comparatorProperty().bind((tableCatCountry.comparatorProperty()));
         tableCatCountry.setItems(sortedData);
     }
 }

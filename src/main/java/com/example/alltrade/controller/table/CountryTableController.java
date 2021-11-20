@@ -1,7 +1,6 @@
 package com.example.alltrade.controller.table;
 
 import com.example.alltrade.model.country.CountryImportExport;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -15,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.util.Comparator;
 import java.util.ResourceBundle;
 
 public class CountryTableController implements Initializable {
@@ -85,7 +83,7 @@ public class CountryTableController implements Initializable {
   });
 
         SortedList<CountryImportExport> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind((tableCountry.comparatorProperty()));// tableCountry.comparatorProperty());
+        sortedData.comparatorProperty().bind((tableCountry.comparatorProperty()));
         tableCountry.setItems(sortedData);
     }
 }

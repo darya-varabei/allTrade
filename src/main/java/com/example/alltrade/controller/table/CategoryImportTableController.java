@@ -1,7 +1,6 @@
 package com.example.alltrade.controller.table;
 
 import com.example.alltrade.model.category.CategoryValue;
-import com.example.alltrade.model.country.CountryCategory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
