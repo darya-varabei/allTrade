@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class CatPercentImportChartController  implements Initializable {
     @FXML
-    private PieChart chartExportShare;
+    private PieChart chartImportShare;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -22,6 +22,6 @@ public class CatPercentImportChartController  implements Initializable {
                 new PieChart.Data("Belgium", 123),
                 new PieChart.Data("Sweden", 123)
         );
-        chartExportShare.setData(pieChartData);
+        chartImportShare.setData(pieChartData);
     }
 }

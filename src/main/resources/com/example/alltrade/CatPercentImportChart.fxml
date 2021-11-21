@@ -7,8 +7,8 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.chart.PieChart?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.chart.CatPercentExportChartController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.chart.CatPercentImportChartController">
     <children>
-        <PieChart fx:id="chartExportShare" layoutX="50.0" title="Доля стран в экспорте" />
+        <PieChart fx:id="chartImportShare" layoutX="50.0" title="Доля стран в экспорте" />
     </children>
 </AnchorPane>
