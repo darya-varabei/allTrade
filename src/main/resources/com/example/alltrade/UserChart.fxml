@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-
 <?import javafx.scene.chart.PieChart?>
-<AnchorPane prefHeight="215.0" prefWidth="250" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.chart.UserChartController">
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="260.0" prefWidth="250" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.chart.UserChartController">
     <children>
-        <PieChart fx:id="chartUsers" layoutX="10.0" title="Структура пользователей" />
+        <PieChart fx:id="chartUsers" maxHeight="250.0" maxWidth="250.0" prefHeight="250.0" prefWidth="250.0" title="Структура пользователей" />
     </children>
 </AnchorPane>
-

@@ -9,13 +9,13 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="302.0" prefWidth="400.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.UserTableController">
     <children>
-        <TableView fx:id="userTable" editable="true" layoutY="47.0" prefHeight="400.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
+        <TableView fx:id="userTable" editable="true" layoutX="30.0"  layoutY="47.0" prefHeight="350.0" prefWidth="400.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="40.0" text="id" />
-                <TableColumn fx:id="loginColumn" prefWidth="75.0" text="Логин" />
-                <TableColumn fx:id="countryColumn" prefWidth="75.0" text="Страна" />
-                <TableColumn fx:id="lastAccessColumn" prefWidth="75.0" text="Последний доступ" />
-                <TableColumn fx:id="roleColumn" prefWidth="75.0" text="Роль" />
+                <TableColumn fx:id="loginColumn" prefWidth="90.0" text="Логин" />
+                <TableColumn fx:id="countryColumn" prefWidth="90.0" text="Страна" />
+                <TableColumn fx:id="lastAccessColumn" prefWidth="90.0" text="Последний доступ" />
+                <TableColumn fx:id="roleColumn" prefWidth="90.0" text="Роль" />
             </columns>
         </TableView>
         <Label fx:id="lblSearch" layoutX="14.0" layoutY="20.0" text="Поиск по таблице">

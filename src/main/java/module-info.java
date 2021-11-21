@@ -19,4 +19,6 @@ module com.example.alltrade {
     opens com.example.alltrade.model.country to javafx.fxml;
     exports com.example.alltrade.controller.table;
     opens com.example.alltrade.controller.table to javafx.fxml;
+    exports com.example.alltrade.controller.chart;
+    opens com.example.alltrade.controller.chart to javafx.fxml;
 }
