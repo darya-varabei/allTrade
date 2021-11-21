@@ -241,6 +241,23 @@ public class MainScreenController implements Initializable {
     @FXML
     private BorderPane pnUserChart;
 
+    @FXML
+    private Button btnChartCountry;
+
+    @FXML
+    private Button btnImportStructure;
+
+    @FXML
+    private Button btnExportStructure;
+
+    @FXML
+    private Button btnWorldExport;
+
+    @FXML
+    private Button btnExportShare;
+
+    @FXML
+    private Button btnImportShare;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FxmlLoader object = new FxmlLoader();
@@ -292,35 +309,7 @@ public class MainScreenController implements Initializable {
         }
     }
 
-    @FXML
-    void showCountryPlot1(ActionEvent event) {
 
-    }
-
-    @FXML
-    void showCountryPlot2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void showCountryPlot3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void showCountryPlot4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void showCountryPlot5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void showCountryPlot6(ActionEvent event) {
-
-    }
 
     @FXML
     void showMainPage(ActionEvent event) {
@@ -443,4 +432,47 @@ public class MainScreenController implements Initializable {
         Pane view = object.getPane("CategoryExportTable.fxml");
         pnCatView.setCenter(view);
     }
+
+    @FXML
+    void showCountryChart(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CountryCommonChart.fxml");
+        mainPane.setCenter(view);
+    }
+
+    @FXML
+    void showExportStructure(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CountryExportPercentChart.fxml");
+        mainPane.setCenter(view);
+    }
+
+    @FXML
+    void showImportStructure(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CountryExportPercentChart.fxml");
+        mainPane.setCenter(view);
+    }
+
+    @FXML
+    void showPlotWorldExport(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CatWorldChart.fxml");
+        pnCatView.setCenter(view);
+    }
+
+    @FXML
+    void showChartCatShare(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CatPercentImportChart.fxml");
+        pnCatView.setCenter(view);
+    }
+
+    @FXML
+    void showChartExportShare(ActionEvent event) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("CatPercentExportChart.fxml");
+        pnCatView.setCenter(view);
+    }
+
 }
