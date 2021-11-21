@@ -3,6 +3,7 @@ package com.example.alltrade.controller;
 import animatefx.animation.*;
 import com.example.alltrade.FxmlLoader;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
@@ -16,7 +17,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.event.ActionEvent;
 
-public class MainScreenController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MainScreenController implements Initializable {
 
     @FXML
     private Pane pnUsersView;
@@ -227,6 +231,25 @@ public class MainScreenController {
 
     @FXML
     private BorderPane pnCatView;
+
+    @FXML
+    private Pane pnUsers;
+
+    @FXML
+    private BorderPane borderPnUsers;
+
+    @FXML
+    private BorderPane pnUserChart;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("UserTable.fxml");
+        borderPnUsers.setCenter(view);
+        FxmlLoader object1 = new FxmlLoader();
+        Pane chart = object1.getPane("UserChart.fxml");
+        pnUserChart.setCenter(chart);
+    }
 
     @FXML
     void chowCategories(ActionEvent event) {

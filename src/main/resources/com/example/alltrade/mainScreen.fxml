@@ -118,50 +118,6 @@
                </font>
             </Button>
          </children></Pane>
-      <Pane fx:id="pnUsersView" layoutX="141.0" layoutY="59.0" prefHeight="566.0" prefWidth="843.0" style="visibility: false;">
-         <children>
-            <Label fx:id="lblTitle111" layoutX="3.0" style="-fx-text-fill: fafafa;" text="all.Trade" textFill="#fafafa">
-               <font>
-                  <Font name="SF Compact Text Regular" size="30.0" />
-               </font>
-            </Label>
-            <Label layoutY="63.0" style="-fx-text-fill: fafafa;" text="Запросы на права администратора">
-               <font>
-                  <Font name="SF Compact Text Regular" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="4.0" layoutY="291.0" style="-fx-text-fill: fafafa;" text="Статистика пользователей">
-               <font>
-                  <Font name="SF Compact Text Regular" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="329.0" layoutY="63.0" style="-fx-text-fill: fafafa;" text="Пользователи">
-               <font>
-                  <Font name="SF Compact Text Medium" size="16.0" />
-               </font>
-            </Label>
-            <ListView layoutX="1.0" layoutY="106.0" prefHeight="140.0" prefWidth="255.0" style=" -fx-background-radius: 15" />
-            <Pane layoutY="340.0" prefHeight="215.0" prefWidth="255.0" style="-fx-background-color: fafafa; -fx-background-radius: 15;">
-               <children>
-                  <PieChart layoutX="26.0" layoutY="19.0" prefHeight="51.0" prefWidth="101.0" />
-               </children>
-            </Pane>
-            <Pane prefHeight="450.0" prefWidth="475.0" style="-fx-background-color: fafafa; -fx-background-radius: 15; visibility: false;">
-               <children>
-                  <TableView prefHeight="450.0" prefWidth="474.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Логин" />
-                      <TableColumn prefWidth="75.0" text="Эл.почта" />
-                        <TableColumn prefWidth="75.0" text="Хэш пароля" />
-                        <TableColumn prefWidth="75.0" text="Роль" />
-                        <TableColumn prefWidth="75.0" text="Дата входа" />
-                        <TableColumn prefWidth="75.0" text="Дата выхода" />
-                    </columns>
-                  </TableView>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
       <Pane fx:id="pnCountryView" layoutX="100.0" prefHeight="650.0" prefWidth="871.0" style="-fx-background-color: 0; visibility: false;">
          <children>
             <Label fx:id="lblTitle" layoutX="19.0" layoutY="37.0" text="all.Trade" textFill="#fafafa">
@@ -355,7 +311,7 @@
                </font>
             </Label>
          </children></Pane>
-      <Pane fx:id="pnCategoryView" layoutX="100.0" prefHeight="652.0" prefWidth="871.0" style="-fx-background-color: 0; visibility: true;">
+      <Pane fx:id="pnCategoryView" layoutX="100.0" prefHeight="652.0" prefWidth="871.0" style="-fx-background-color: 0; visibility: false;">
          <children>
             <Pane fx:id="pnDataViewCat" layoutX="25.0" layoutY="165.0" prefHeight="438.0" prefWidth="799.0" style="-fx-background-color: fafafa; -fx-border-radius: 15; -fx-background-radius: 15;">
                <effect>
@@ -514,5 +470,51 @@
             </Label>
             <ComboBox fx:id="cmbChooseCountry1" layoutX="26.0" layoutY="101.0" prefHeight="28.0" prefWidth="192.0" promptText="Выберите категорию" style="-fx-background-color: 0; -fx-border-color: #fafafa; -fx-border-radius: 10;  -fx-text-base-color: #fafafa" />
          </children></Pane>
+      <Pane fx:id="pnUsersView" layoutX="141.0" layoutY="59.0" prefHeight="566.0" prefWidth="843.0" style="visibility: true;">
+         <children>
+            <Label fx:id="lblTitle111" layoutX="3.0" style="-fx-text-fill: fafafa;" text="all.Trade" textFill="#fafafa">
+               <font>
+                  <Font name="SF Compact Text Regular" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutY="63.0" style="-fx-text-fill: fafafa;" text="Запросы на права администратора">
+               <font>
+                  <Font name="SF Compact Text Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="4.0" layoutY="291.0" style="-fx-text-fill: fafafa;" text="Статистика пользователей">
+               <font>
+                  <Font name="SF Compact Text Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="329.0" layoutY="63.0" style="-fx-text-fill: fafafa;" text="Пользователи">
+               <font>
+                  <Font name="SF Compact Text Medium" size="16.0" />
+               </font>
+            </Label>
+            <ListView layoutX="1.0" layoutY="106.0" prefHeight="140.0" prefWidth="255.0" style=" -fx-background-radius: 15" />
+            <Pane layoutY="340.0" prefHeight="215.0" prefWidth="255.0" style="-fx-background-color: fafafa; -fx-background-radius: 15;">
+               <children>
+                  <BorderPane fx:id="pnUserChart" layoutX="-6.0" prefHeight="215.0" prefWidth="261.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="450.0" prefWidth="475.0" style="-fx-background-color: fafafa; -fx-background-radius: 15; visibility: false;">
+               <children>
+                  <TableView prefHeight="450.0" prefWidth="474.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Логин" />
+                      <TableColumn prefWidth="75.0" text="Эл.почта" />
+                        <TableColumn prefWidth="75.0" text="Хэш пароля" />
+                        <TableColumn prefWidth="75.0" text="Роль" />
+                        <TableColumn prefWidth="75.0" text="Дата входа" />
+                        <TableColumn prefWidth="75.0" text="Дата выхода" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <ListView fx:id="listUsers" layoutX="329.0" layoutY="106.0" prefHeight="441.0" prefWidth="459.0" style=" -fx-background-radius: 15" />
+            <BorderPane fx:id="borderPnUsers" layoutX="329.0" layoutY="106.0" prefHeight="440.0" prefWidth="459.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

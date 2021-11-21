@@ -1,8 +1,9 @@
 package com.example.alltrade.model.country;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class CountryCategory extends CountryMain {
+public class CountryCategory extends CountryMain implements Serializable {
 //    private Integer countryId;
 //    private Integer year;
     private String category;
