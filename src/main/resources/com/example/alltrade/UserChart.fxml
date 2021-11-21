@@ -5,6 +5,6 @@
 
 <AnchorPane prefHeight="260.0" prefWidth="250" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.chart.UserChartController">
     <children>
-        <PieChart fx:id="chartUsers" maxHeight="250.0" maxWidth="250.0" prefHeight="250.0" prefWidth="250.0" title="Структура пользователей" />
+        <PieChart fx:id="chartUsers" maxHeight="290.0" maxWidth="290.0" prefHeight="290.0" prefWidth="290.0" layoutY="-30"/>
     </children>
 </AnchorPane>

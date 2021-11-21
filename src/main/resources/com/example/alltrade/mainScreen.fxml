@@ -512,8 +512,8 @@
                   </TableView>
                </children>
             </Pane>
-            <ListView fx:id="listUsers" layoutX="329.0" layoutY="106.0" prefHeight="481.0" prefWidth="459.0" style=" -fx-background-radius: 15" />
-            <BorderPane fx:id="borderPnUsers" layoutX="329.0" layoutY="106.0" prefHeight="481.0" prefWidth="459.0" />
+            <ListView fx:id="listUsers" layoutX="329.0" layoutY="106.0" prefHeight="481.0" prefWidth="494.0" style=" -fx-background-radius: 15" />
+            <BorderPane fx:id="borderPnUsers" layoutX="329.0" layoutY="106.0" prefHeight="481.0" prefWidth="494.0" />
          </children>
       </Pane>
    </children>

@@ -46,7 +46,7 @@ public class UserInfo implements Serializable {
         return lastAccessDate;
     }
 
-    public void setArea(Date lastAccessDate) {
+    public void setLastAccessDate(Date lastAccessDate) {
         this.lastAccessDate = lastAccessDate;
     }
 
