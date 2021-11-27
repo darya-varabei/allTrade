@@ -1,6 +1,5 @@
 package com.example.alltrade.controller.table;
 
-import com.example.alltrade.model.country.CountryImportExport;
 import com.example.alltrade.model.user.UserInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,11 +7,9 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.Date;
@@ -21,7 +18,7 @@ import java.util.ResourceBundle;
 public class UserTableController implements Initializable {
 
     @FXML
-    private TableView<UserInfo> userTable;
+    public TableView<UserInfo> userTable;
 
     @FXML
     private TableColumn<UserInfo, Integer> idColumn;
@@ -42,9 +39,36 @@ public class UserTableController implements Initializable {
     private Label lblSearch;
 
     @FXML
+    private Button addUserButton;
+
+    @FXML
+    private Button updateUserButton;
+
+    @FXML
+    private Button deleteUserButton;
+
+    @FXML
+    private Button clearUserDataButton;
+
+    @FXML
+    private TextField txtLogin = new TextField();
+
+    @FXML
+    private TextField txtPassword = new TextField();
+
+    @FXML
+    private ComboBox<String> cmbChooseUserCountry = new ComboBox<>();
+
+    @FXML
+    private ComboBox<String> cmbChooseRole = new ComboBox<>();
+
+
+    @FXML
     private TextField predicateField;
 
-    private final ObservableList<UserInfo> dataList = FXCollections.observableArrayList();
+    private UserInfo user;
+
+    public final ObservableList<UserInfo> dataList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -54,11 +78,11 @@ public class UserTableController implements Initializable {
         lastAccessColumn.setCellValueFactory(new PropertyValueFactory<>("lastAccessDate"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
         Date date1 = new Date();
-        UserInfo case1 = new UserInfo(1, "jerfhg", "Italy", date1,"User");
-        UserInfo case2 = new UserInfo(1, "gtyr", "Italy", date1,"User");
-        UserInfo case3 = new UserInfo(1, "uytgc", "Italy", date1,"User");
-        UserInfo case4 = new UserInfo(1, "uiyut", "Italy", date1,"User");
-        UserInfo case5 = new UserInfo(1, "uyewt", "Italy", date1,"User");
+        UserInfo case1 = new UserInfo(1, "jerfhg","e4tgh", "Italy", "date1","User");
+        UserInfo case2 = new UserInfo(1, "gtyr","tg4e", "Italy", "date1","User");
+        UserInfo case3 = new UserInfo(1, "uytgc","rtgb4w", "Italy", "","User");
+        UserInfo case4 = new UserInfo(1, "uiyut","4gwtrbrt", "Italy", "date1","User");
+        UserInfo case5 = new UserInfo(1, "uyewt","45htwgy", "Italy"," date1","User");
         dataList.addAll(case1, case2, case3, case4, case5);
 
         FilteredList<UserInfo> filteredData = new FilteredList<>(dataList, b -> true);
@@ -94,6 +118,55 @@ public class UserTableController implements Initializable {
         SortedList<UserInfo> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind((userTable.comparatorProperty()));
         userTable.setItems(sortedData);
+    }
+
+    @FXML
+    private void clickItem(MouseEvent event) {
+        if (event.getClickCount() == 2) {
+            user = userTable.getSelectionModel().getSelectedItem();
+            txtLogin.setText(user.getLogin());
+            txtPassword.setText(user.getPassword());
+            cmbChooseUserCountry.setValue(user.getCountry());
+            cmbChooseRole.setValue(user.getRole());
+        }
+    }
+
+    @FXML private void addUser() {
+        UserInfo userAdd = new UserInfo(0, txtLogin.getText(), txtPassword.getText(), cmbChooseUserCountry.getValue(), "", cmbChooseRole.getValue());
+        dataList.add(userAdd);
+        userTable.refresh();
+    }
+
+    @FXML private void updateUser() {
+        user = userTable.getSelectionModel().getSelectedItem();
+        user.setLogin(txtLogin.getText());
+        user.setPassword(txtPassword.getText());
+        user.setCountry(cmbChooseUserCountry.getValue());
+        user.setCountry(cmbChooseRole.getValue());
+
+        removeUser(user.getId());
+        dataList.add(user);
+    }
+
+    @FXML private void deleteUser() {
+        user = userTable.getSelectionModel().getSelectedItem();
+        removeUser(user.getId());
+        userTable.refresh();
+    }
+
+    private void removeUser(int id) {
+        dataList.forEach((tab) -> {
+            if (tab.getId() == id) {
+                dataList.remove(tab);
+            }
+        });
+    }
+
+    @FXML private void clearUser() {
+        txtLogin.clear();
+        txtPassword.clear();
+        cmbChooseUserCountry.setValue("Выберите страну");
+        cmbChooseRole.setValue("Выберите роль");
     }
 }
 

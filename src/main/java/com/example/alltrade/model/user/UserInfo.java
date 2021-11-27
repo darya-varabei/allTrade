@@ -3,16 +3,15 @@ package com.example.alltrade.model.user;
 import java.io.Serializable;
 import java.util.Date;
 
-public class UserInfo implements Serializable {
+public class UserInfo extends User implements Serializable {
     private int id;
-    private String login;
     private String country;
-    private Date lastAccessDate;
+    private String lastAccessDate;
     private String role;
 
-    public UserInfo(Integer id, String login, String country, Date lastAccessDate, String role) {
+    public UserInfo(Integer id, String login, String password, String country, String lastAccessDate, String role) {
+        super(login, password);
         this.id = id;
-        this.login = login;
         this.country = country;
         this.lastAccessDate = lastAccessDate;
         this.role = role;
@@ -26,14 +25,6 @@ public class UserInfo implements Serializable {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
     public String getCountry() {
         return country;
     }
@@ -42,11 +33,11 @@ public class UserInfo implements Serializable {
         this.country = country;
     }
 
-    public Date getLastAccessDate() {
+    public String getLastAccessDate() {
         return lastAccessDate;
     }
 
-    public void setLastAccessDate(Date lastAccessDate) {
+    public void setLastAccessDate(String lastAccessDate) {
         this.lastAccessDate = lastAccessDate;
     }
 

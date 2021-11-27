@@ -2,6 +2,7 @@ package com.example.alltrade.controller;
 
 import animatefx.animation.*;
 import com.example.alltrade.FxmlLoader;
+import com.example.alltrade.model.user.UserInfo;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
@@ -9,13 +10,13 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.event.ActionEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -233,6 +234,18 @@ public class MainScreenController implements Initializable {
     private BorderPane pnCatView;
 
     @FXML
+    private TextField txtLogin = new TextField();
+
+    @FXML
+    private TextField txtPassword = new TextField();
+
+    @FXML
+    private ComboBox<String> cmbChooseUserCountry = new ComboBox<>();
+
+    @FXML
+    private ComboBox<String> cmbChooseRole = new ComboBox<>();
+
+    @FXML
     private Pane pnUsers;
 
     @FXML
@@ -258,6 +271,8 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private Button btnImportShare;
+
+    private UserInfo user = new UserInfo(0, "", "", "", "", "");
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FxmlLoader object = new FxmlLoader();
@@ -269,7 +284,7 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void chowCategories(ActionEvent event) {
+    void chowCategories() {
         if (pnCategoryView.isVisible() == false) {
             pnCategoryView.setVisible(true);
             new FadeInUp(pnCategoryView).play();
@@ -287,12 +302,12 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void exportToPDF(ActionEvent event) {
+    void exportToPDF() {
 
     }
 
     @FXML
-    void showCountry(ActionEvent event) {
+    void showCountry() {
         if (pnCountryView.isVisible() == false) {
             pnCountryView.setVisible(true);
             new FadeInUp(pnCountryView).play();
@@ -312,7 +327,7 @@ public class MainScreenController implements Initializable {
 
 
     @FXML
-    void showMainPage(ActionEvent event) {
+    void showMainPage() {
         if (pnMainView.isVisible() == false) {
             pnMainView.setVisible(true);
             new FadeInUp(pnMainView).play();
@@ -330,7 +345,7 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void showPlots(ActionEvent event) {
+    void showPlots() {
         btnTableCat.setStyle("-fx-background-color: #FAFAFA; -fx-background-radius: 5;  -fx-text-fill: #2F3763");
         btnPlotCat.setStyle("-fx-background-color: #2F3763; -fx-background-radius: 5; -fx-text-fill: #fafafa");
         new FadeInUp(pnChoosePlotCat).play();
@@ -338,7 +353,7 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void showSettings(ActionEvent event) {
+    void showSettings() {
         if (pnSettingsView.isVisible() == false) {
             pnSettingsView.setVisible(true);
             new FadeInDown(pnSettingsView).play();
@@ -356,8 +371,7 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void showTablesCountry(ActionEvent event) {
-
+    void showTablesCountry() {
             btnTablePaneCountry.setStyle("-fx-background-color: #2F3763; -fx-background-radius: 5;  -fx-text-fill: #FAFAFA");
             btnPlotPaneCountry.setStyle("-fx-background-color: #fafafa; -fx-background-radius: 5; -fx-text-fill: #2F3763");
             new FadeInUp(pnChooseTableCountry).play();
@@ -365,8 +379,7 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void showTablesCat(ActionEvent event) {
-
+    void showTablesCat() {
         btnTableCat.setStyle("-fx-background-color: #013243; -fx-background-radius: 5;  -fx-text-fill: #FAFAFA");
         btnPlotCat.setStyle("-fx-background-color: #fafafa; -fx-background-radius: 5; -fx-text-fill: #013243");
         new FadeInUp(pnChooseTableCat).play();
@@ -374,7 +387,7 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void showPlotsCountry(ActionEvent event) {
+    void showPlotsCountry() {
         btnPlotPaneCountry.setStyle("-fx-background-color: #2F3763; -fx-background-radius: 5;  -fx-text-fill: #FAFAFA");
         btnTablePaneCountry.setStyle("-fx-background-color: #fafafa; -fx-background-radius: 5; -fx-text-fill: #2F3763");
         new FadeInUp(pnChoosePlotCountry).play();
@@ -382,7 +395,7 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML
-    void showUsers(ActionEvent event) {
+    void showUsers() {
         if (pnUsersView.isVisible() == false) {
             pnUsersView.setVisible(true);
             new FadeInDown(pnUsersView).play();
@@ -409,70 +422,69 @@ public class MainScreenController implements Initializable {
         ((Button)event.getSource()).setUnderline(true);
     }
 
-    public void showCountryCommonTable(ActionEvent actionEvent) {
+    public void showCountryCommonTable() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryTable.fxml");
         mainPane.setCenter(view);
     }
 
-    public void showCountryCatTable(ActionEvent actionEvent) {
+    public void showCountryCatTable() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryCatTable.fxml");
         mainPane.setCenter(view);
     }
 
-    public void showCatImportTable(ActionEvent actionEvent) {
+    public void showCatImportTable() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CategoryImportTable.fxml");
         pnCatView.setCenter(view);
     }
 
-    public void showCatExport(ActionEvent actionEvent) {
+    public void showCatExport() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CategoryExportTable.fxml");
         pnCatView.setCenter(view);
     }
 
     @FXML
-    void showCountryChart(ActionEvent event) {
+    void showCountryChart() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryCommonChart.fxml");
         mainPane.setCenter(view);
     }
 
     @FXML
-    void showExportStructure(ActionEvent event) {
+    void showExportStructure() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryExportPercentChart.fxml");
         mainPane.setCenter(view);
     }
 
     @FXML
-    void showImportStructure(ActionEvent event) {
+    void showImportStructure() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryExportPercentChart.fxml");
         mainPane.setCenter(view);
     }
 
     @FXML
-    void showPlotWorldExport(ActionEvent event) {
+    void showPlotWorldExport() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CatWorldChart.fxml");
         pnCatView.setCenter(view);
     }
 
     @FXML
-    void showChartCatShare(ActionEvent event) {
+    void showChartCatShare() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CatPercentImportChart.fxml");
         pnCatView.setCenter(view);
     }
 
     @FXML
-    void showChartExportShare(ActionEvent event) {
+    void showChartExportShare() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CatPercentExportChart.fxml");
         pnCatView.setCenter(view);
     }
-
 }

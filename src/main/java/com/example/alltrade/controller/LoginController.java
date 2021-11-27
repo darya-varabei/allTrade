@@ -111,29 +111,29 @@ public class LoginController {
 
     @FXML
     private void connect() {
-        var connection = new Connection();
-        if (txtPort.getText().isEmpty() != true && txtAdress.getText().isEmpty() != true && txtPort.getText().matches("[1-9]+")) {
-            connection.connectToServer(
-                    txtAdress.getText(), Integer.parseInt(txtPort.getText())
-            );
-            manager = connection.connectionManager;
-
-            if (manager != null) {
-                lblInvalidConnection.setVisible(false);
+//        var connection = new Connection();
+//        if (txtPort.getText().isEmpty() == false && txtAdress.getText().isEmpty() == false && txtPort.getText().matches("[1-9]+")) {
+//            connection.connectToServer(
+//                    txtAdress.getText(), Integer.parseInt(txtPort.getText())
+//            );
+//            manager = connection.connectionManager;
+//
+//            if (manager != null) {
+//                lblInvalidConnection.setVisible(false);
                 new SlideOutLeft(loginPane).play();
                 new SlideInLeft(connectionPane).play();
                 loginPane.toBack();
                 connectionPane.toFront();
                 registButton.setDisable(false);
                 authoButton.setDisable(false);
-            } else {
-                lblInvalidConnection.setVisible(true);
-                lblInvalidConnection.toFront();
-            }
-        }
-        else {
-            lblInvalidConnection.setVisible(true);
-            lblInvalidConnection.toFront();
-        }
+//            } else {
+//                lblInvalidConnection.setVisible(true);
+//                lblInvalidConnection.toFront();
+//            }
+//        }
+//        else {
+//            lblInvalidConnection.setVisible(true);
+//            lblInvalidConnection.toFront();
+//        }
     }
 }
