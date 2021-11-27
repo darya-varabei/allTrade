@@ -1,7 +1,6 @@
 package com.example.alltrade.model.user;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class UserInfo extends User implements Serializable {
     private int id;
