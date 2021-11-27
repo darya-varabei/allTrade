@@ -17,12 +17,12 @@
             <Image url="@Background.png" />
          </image>
       </ImageView>
-      <Button fx:id="registButton" layoutX="380.0" layoutY="95.0" mnemonicParsing="false" onAction="#RegistAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: fafafa; -fx-background-radius: 15; -fx-text-fill: #013243; -fx-font-size: 11; -fx-font-family: SF Compact Text;" text="Регистрация" textAlignment="CENTER">
+      <Button fx:id="registButton" disable="true" layoutX="380.0" layoutY="95.0" mnemonicParsing="false" onAction="#RegistAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: fafafa; -fx-background-radius: 15; -fx-text-fill: #013243; -fx-font-size: 11; -fx-font-family: SF Compact Text;" text="Регистрация" textAlignment="CENTER">
          <font>
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>
       </Button>
-      <Button fx:id="authoButton" layoutX="490.0" layoutY="95.0" mnemonicParsing="false" onAction="#AuthoAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: 0; -fx-font-size: 11; -fx-font-family: SF Compact Text ; -fx-text-fill: #fafafa; " text="Авторизация" textAlignment="CENTER">
+      <Button fx:id="authoButton" disable="true" layoutX="490.0" layoutY="95.0" mnemonicParsing="false" onAction="#AuthoAction" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: 0; -fx-font-size: 11; -fx-font-family: SF Compact Text ; -fx-text-fill: #fafafa; " text="Авторизация" textAlignment="CENTER">
          <font>
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>
@@ -47,7 +47,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="authoPane" layoutX="387.0" layoutY="149.0" prefHeight="296.0" prefWidth="283.0" style="-fx-background-color: #013243;">
+      <Pane fx:id="authoPane" layoutX="387.0" layoutY="149.0" prefHeight="285.0" prefWidth="260.0" style="-fx-background-color: #013243;">
          <children>
             <TextField fx:id="emailField" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="178.0" promptText="Электоронная почта" style="-fx-background-color: fafafa; -fx-background-radius: 7; -fx-opacity: 0.2; -fx-font-size: 11; -fx-font-family: SF Compact Text;">
                <font>
@@ -75,7 +75,37 @@
                   <Font name="SF Compact Text Regular" size="11.0" />
                </font>
             </Label>
+            <Label fx:id="lblPasswordNotMatch" layoutX="8.0" layoutY="277.0" style="-fx-text-fill: #b01414;" text="Введенные пароли не совпадают" textFill="#b01414" visible="false">
+               <font>
+                  <Font name="SF Compact Text Regular" size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="connectionPane" layoutX="387.0" layoutY="149.0" prefHeight="283.0" prefWidth="259.0" style="-fx-background-color: #013243;">
+         <children>
+            <TextField fx:id="txtAdress" layoutX="16.0" layoutY="70.0" prefHeight="27.0" prefWidth="178.0" promptText="Адрес" style="-fx-background-color: fafafa; -fx-background-radius: 7; -fx-opacity: 0.2; -fx-font-size: 11; -fx-font-family: SF Compact Text;">
+               <font>
+                  <Font name="SF Compact Text Regular" size="11.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtPort" layoutX="16.0" layoutY="121.0" prefHeight="27.0" prefWidth="178.0" promptText="Номер порта" style="-fx-background-color: fafafa; -fx-background-radius: 7; -fx-opacity: 0.2; -fx-font-size: 11; -fx-font-family: SF Compact Text;">
+               <font>
+                  <Font name="SF Compact Text Regular" size="11.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnSetConnection" onAction="#connect" layoutX="11.0" layoutY="220.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="178.0" style="-fx-background-color: #02E079; -fx-text-fill: #fafafa; -fx-background-radius: 15; -fx-font-size: 12; -fx-font-family: SF Compact Text;" text="Подключиться" />
+            <Label fx:id="lblLoginExists" layoutX="9.0" layoutY="276.0" prefHeight="14.0" prefWidth="181.0" style="-fx-text-fill: #b01414;" text="Данный логин уже используется" textFill="#b01414" visible="false">
+               <font>
+                  <Font name="SF Compact Text Regular" size="11.0" />
+               </font>
+            </Label>
             <Label layoutX="8.0" layoutY="277.0" style="-fx-text-fill: #b01414;" text="Введенные пароли не совпадают" textFill="#b01414" visible="false">
+               <font>
+                  <Font name="SF Compact Text Regular" size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblInvalidConnection" layoutX="22.0" layoutY="160.0" style="-fx-text-fill: #dc4646;" text="Ошибка подключения" textFill="#dc4646" visible="false">
                <font>
                   <Font name="SF Compact Text Regular" size="11.0" />
                </font>
