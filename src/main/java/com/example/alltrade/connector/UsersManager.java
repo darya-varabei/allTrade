@@ -12,7 +12,7 @@ public class UsersManager  extends ConnectionManager {
         super(clientSocket);
     }
 
-    public LinkedList<UserInfo> getCountryImportExport(String country) {
+    public LinkedList<UserInfo> getAllUsers(String country) {
         sendString("allUsers + " + country);
         try {
             return (LinkedList<UserInfo>) readMessage.readObject();

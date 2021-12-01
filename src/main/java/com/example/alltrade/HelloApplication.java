@@ -17,7 +17,7 @@ public class HelloApplication extends Application {
         FXMLLoader secondPage = new FXMLLoader(HelloApplication.class.getResource("mainScreen.fxml"));
         Scene scene = new Scene(firstPage.load(), 970, 550);
         Parent secondPane = secondPage.load();
-        Scene secondScene = new Scene(secondPane, 970, 650);
+        Scene secondScene = new Scene(secondPane, 1210, 750);
 
         LoginController firstPaneController = (LoginController) firstPage.getController();
         firstPaneController.setSecondScene(secondScene);

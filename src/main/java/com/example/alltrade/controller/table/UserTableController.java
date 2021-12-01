@@ -62,7 +62,6 @@ public class UserTableController implements Initializable {
     @FXML
     private ComboBox<String> cmbChooseRole = new ComboBox<>();
 
-
     @FXML
     private TextField predicateField;
 

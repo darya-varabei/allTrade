@@ -22,9 +22,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1212.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.MainScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1212.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.MainScreenController">
    <children>
-      <Pane fx:id="pnMain" prefHeight="650.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E);">
+      <Pane fx:id="pnMain" prefHeight="748.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E);">
          <effect>
             <DropShadow height="10.5" radius="5.8975" width="15.09">
                <color>
@@ -131,9 +131,9 @@
                </font>
             </Label>
          </children></Pane>
-      <Pane fx:id="pnCategoryView" layoutX="100.0" prefHeight="652.0" prefWidth="871.0" style="-fx-background-color: 0; visibility: false;" visible="false">
+      <Pane fx:id="pnCategoryView" layoutX="100.0" prefHeight="736.0" prefWidth="1078.0" style="-fx-background-color: 0; visibility: false;" visible="false">
          <children>
-            <Pane fx:id="pnDataViewCat" layoutX="25.0" layoutY="165.0" prefHeight="438.0" prefWidth="799.0" style="-fx-background-color: fafafa; -fx-border-radius: 15; -fx-background-radius: 15;">
+            <Pane fx:id="pnDataViewCat" layoutX="25.0" layoutY="165.0" prefHeight="534.0" prefWidth="1022.0" style="-fx-background-color: fafafa; -fx-border-radius: 15; -fx-background-radius: 15;">
                <effect>
                   <DropShadow>
                      <color>
@@ -236,7 +236,7 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <Line endX="3.0517578125E-5" endY="406.0" layoutX="213.0" layoutY="34.0" opacity="0.2" startX="3.0517578125E-5" startY="-34.0" />
+                  <Line endX="9.1552734375E-5" endY="486.17376708984375" layoutX="213.0" layoutY="34.0" opacity="0.2" startX="3.0517578125E-5" startY="-34.0" />
                   <Pane fx:id="pnCategoryTable" layoutX="231.0" layoutY="15.0" prefHeight="334.0" prefWidth="518.0" visible="false">
                      <children>
                         <Label fx:id="lblCommonExpImpPlot1" layoutX="37.0" layoutY="32.0" text="Общемировой экспорт">
@@ -256,7 +256,7 @@
                      </children>
                   </Pane>
                   <BorderPane fx:id="pnCatView" layoutX="223.0" layoutY="14.0" prefHeight="315.0" prefWidth="542.0" />
-                  <Button fx:id="btnExportPDF1" layoutX="261.0" layoutY="351.0" mnemonicParsing="false" onAction="#exportToPDF" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #2F3763; -fx-background-radius: 12;" text="Экспортировать в PDF" textFill="#fafafa">
+                  <Button fx:id="btnExportPDF1" layoutX="257.0" layoutY="455.0" mnemonicParsing="false" onAction="#exportToPDF" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #2F3763; -fx-background-radius: 12;" text="Экспортировать в PDF" textFill="#fafafa">
                      <font>
                         <Font name="SF Compact Text Regular" size="12.0" />
                      </font>
@@ -268,29 +268,29 @@
                   <Font name="SF Compact Text Regular" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="lblArea1" layoutX="363.0" layoutY="27.0" style="-fx-text-fill: fafafa;" text="Общемировой экспорт" textFill="#fafafa">
+            <Label fx:id="lblArea1" layoutX="365.0" layoutY="52.0" style="-fx-text-fill: fafafa;" text="Общемировой экспорт" textFill="#fafafa">
                <font>
                   <Font name="SF Compact Text Regular" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="lblPopulation1" layoutX="559.0" layoutY="29.0" style="-fx-text-fill: fafafa;" text="Экспортерами являются" textFill="#fafafa">
+            <Label fx:id="lblPopulation1" layoutX="561.0" layoutY="54.0" style="-fx-text-fill: fafafa;" text="Экспортерами являются" textFill="#fafafa">
                <font>
                   <Font name="SF Compact Text Regular" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="lblAreaValue1" layoutX="363.0" layoutY="62.0" style="-fx-text-fill: fafafa;" text="309.98 км" textFill="#fafafa">
+            <Label fx:id="lblAreaValue1" layoutX="365.0" layoutY="87.0" style="-fx-text-fill: fafafa;" text="309.98 км" textFill="#fafafa">
                <font>
                   <Font name="SF Compact Text Regular" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="lblPopValue1" layoutX="559.0" layoutY="64.0" style="-fx-text-fill: fafafa;" text="12 стран" textFill="#fafafa">
+            <Label fx:id="lblPopValue1" layoutX="561.0" layoutY="89.0" style="-fx-text-fill: fafafa;" text="12 стран" textFill="#fafafa">
                <font>
                   <Font name="SF Compact Text Regular" size="15.0" />
                </font>
             </Label>
             <ComboBox fx:id="cmbChooseCountry1" layoutX="26.0" layoutY="101.0" prefHeight="28.0" prefWidth="192.0" promptText="Выберите категорию" style="-fx-background-color: 0; -fx-border-color: #fafafa; -fx-border-radius: 10;  -fx-text-base-color: #fafafa" />
          </children></Pane>
-      <Pane fx:id="pnCountryView" layoutX="100.0" prefHeight="650.0" prefWidth="871.0" style="-fx-background-color: 0; visibility: false;" visible="false">
+      <Pane fx:id="pnCountryView" layoutX="100.0" prefHeight="740.0" prefWidth="1070.0" style="-fx-background-color: 0; visibility: false;">
          <children>
             <Label fx:id="lblTitle" layoutX="19.0" layoutY="37.0" text="all.Trade" textFill="#fafafa">
                <font>
@@ -338,7 +338,7 @@
                </children>
             </Pane>
             <ComboBox fx:id="cmbChooseCountry" layoutX="15.0" layoutY="111.0" prefHeight="28.0" prefWidth="192.0" promptText="Выберите страну" style="-fx-background-color: 0; -fx-border-color: #fafafa; -fx-border-radius: 10; -fx-text-base-color: #fafafa" />
-            <Pane fx:id="pnDataView" layoutX="25.0" layoutY="165.0" prefHeight="438.0" prefWidth="799.0" style="-fx-background-color: fafafa; -fx-border-radius: 15; -fx-background-radius: 15;">
+            <Pane fx:id="pnDataView" layoutX="25.0" layoutY="165.0" prefHeight="550.0" prefWidth="1043.0" style="-fx-background-color: fafafa; -fx-border-radius: 15; -fx-background-radius: 15;">
                <effect>
                   <DropShadow>
                      <color>
@@ -356,7 +356,7 @@
                                     <Font name="SF Compact Text Regular" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnPlotPaneCountry" mnemonicParsing="false" onAction="#showPlotsCountry" prefHeight="41.0" prefWidth="105.0" style="-fx-background-color: #013243;" text="Графики" textFill="#fafafa">
+                              <Button fx:id="btnPlotPaneCountry" mnemonicParsing="false" onAction="#showPlotsCountry" prefHeight="41.0" prefWidth="105.0" style="-fx-background-color: #2F3763;" text="Графики" textFill="#fafafa">
                                  <font>
                                     <Font name="SF Compact Text Regular" size="12.0" />
                                  </font>
@@ -441,8 +441,8 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <Line endX="3.0517578125E-5" endY="406.0" layoutX="213.0" layoutY="34.0" opacity="0.2" startX="3.0517578125E-5" startY="-34.0" />
-                  <Pane fx:id="pnExpImpPlot" layoutX="231.0" layoutY="15.0" prefHeight="426.0" prefWidth="569.0">
+                  <Line endX="9.1552734375E-5" endY="502.24102783203125" layoutX="213.0" layoutY="34.0" opacity="0.2" startX="3.0517578125E-5" startY="-34.0" />
+                  <Pane fx:id="pnExpImpPlot" layoutX="231.0" layoutY="15.0" prefHeight="510.0" prefWidth="569.0">
                      <children>
                         <Label fx:id="lblCommonExpImpPlot" layoutX="37.0" layoutY="14.0" text="Общий график импорта и экспорта">
                            <font>
@@ -458,19 +458,19 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </AreaChart>
-                        <Button fx:id="btnExportPDF" layoutX="57.0" layoutY="355.0" mnemonicParsing="false" onAction="#exportToPDF" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #013243; -fx-background-radius: 12;" text="Экспортировать в PDF" textFill="#fafafa">
+                        <Button fx:id="btnExportPDF" layoutX="55.0" layoutY="434.0" mnemonicParsing="false" onAction="#exportToPDF" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #2F3763; -fx-background-radius: 12;" text="Экспортировать в PDF" textFill="#fafafa">
                            <font>
                               <Font name="SF Compact Text Regular" size="12.0" />
                            </font>
                         </Button>
-                        <BorderPane fx:id="mainPane" layoutX="26.0" layoutY="42.0" prefHeight="283.0" prefWidth="506.0" style="-fx-background-color: fafafa; -fx-background-radius: 15; -fx-border-radius: 15;" />
+                        <BorderPane fx:id="mainPane" layoutX="27.0" layoutY="76.0" prefHeight="283.0" prefWidth="506.0" style="-fx-background-color: fafafa; -fx-background-radius: 15; -fx-border-radius: 15;" />
                      </children>
                   </Pane>
                </children>
             </Pane>
          </children>
       </Pane>
-      <Pane fx:id="pnUsersView" layoutX="124.0" layoutY="26.0" prefHeight="599.0" prefWidth="1085.0" style="visibility: true;">
+      <Pane fx:id="pnUsersView" layoutX="124.0" layoutY="26.0" prefHeight="705.0" prefWidth="1085.0" style="visibility: true;" visible="false">
          <children>
             <Label fx:id="lblTitle111" layoutX="3.0" style="-fx-text-fill: fafafa;" text="all.Trade" textFill="#fafafa">
                <font>
@@ -512,8 +512,8 @@
                   </TableView>
                </children>
             </Pane>
-            <ListView fx:id="listUsers" layoutX="329.0" layoutY="106.0" prefHeight="481.0" prefWidth="717.0" style=" -fx-background-radius: 15" />
-            <BorderPane fx:id="borderPnUsers" layoutX="329.0" layoutY="106.0" prefHeight="481.0" prefWidth="733.0">
+            <ListView fx:id="listUsers" layoutX="329.0" layoutY="106.0" prefHeight="584.0" prefWidth="717.0" style=" -fx-background-radius: 15" />
+            <BorderPane fx:id="borderPnUsers" layoutX="329.0" layoutY="106.0" prefHeight="585.0" prefWidth="733.0">
                <bottom>
                   <Pane prefHeight="105.0" prefWidth="451.0" BorderPane.alignment="CENTER" />
                </bottom></BorderPane>
