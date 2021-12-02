@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="302.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.CountryCatTableController">
+<AnchorPane prefHeight="383.0" prefWidth="465.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.CountryCatTableController">
     <children>
-        <TableView fx:id="tableCatCountry" editable="true" layoutY="47.0" prefHeight="255.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
+        <TableView fx:id="tableCatCountry" editable="true" layoutY="68.0" prefHeight="255.0" prefWidth="475.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
             <columns>
                 <TableColumn fx:id="yearColumn" prefWidth="75.0" text="Год" />
                 <TableColumn fx:id="categoryColumn" prefWidth="130.0" text="Категория" />
@@ -17,11 +17,11 @@
                 <TableColumn fx:id="exportColumn" prefWidth="139.0" text="Экспорт" />
             </columns>
         </TableView>
-        <Label fx:id="lblSearch" layoutX="14.0" layoutY="20.0" text="Поиск по таблице">
+        <Label fx:id="lblSearch" layoutX="14.0" layoutY="19.0" text="Поиск по таблице">
             <font>
                 <Font name="SF Compact Text Regular" size="12.0" />
             </font>
         </Label>
-        <TextField fx:id="predicateField" layoutX="146.0" layoutY="15.0" />
+        <TextField fx:id="predicateField" layoutX="146.0" layoutY="14.0" />
     </children>
 </AnchorPane>

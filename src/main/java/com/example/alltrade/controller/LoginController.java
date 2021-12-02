@@ -120,10 +120,10 @@ public class LoginController {
 //
 //            if (manager != null) {
 //                lblInvalidConnection.setVisible(false);
-                new SlideOutLeft(loginPane).play();
-                new SlideInLeft(connectionPane).play();
-                loginPane.toBack();
-                connectionPane.toFront();
+                new SlideOutLeft(connectionPane).play();
+                new SlideInLeft(authoPane).play();
+                connectionPane.toBack();
+                authoPane.toFront();
                 registButton.setDisable(false);
                 authoButton.setDisable(false);
 //            } else {

@@ -24,113 +24,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1212.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.MainScreenController">
    <children>
-      <Pane fx:id="pnMain" prefHeight="748.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E);">
-         <effect>
-            <DropShadow height="10.5" radius="5.8975" width="15.09">
-               <color>
-                  <Color opacity="0.57419353723526" />
-               </color>
-            </DropShadow>
-         </effect>
-         <children>
-            <ImageView fx:id="imgLogo" fitHeight="64.0" fitWidth="70.0" layoutX="15.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../Desktop/Logo.png" />
-               </image>
-            </ImageView>
-            <VBox fx:id="vbButtons" layoutY="166.0" prefHeight="315.0" prefWidth="100.0" style="-fx-background-color: 0;">
-               <children>
-                  <Button fx:id="btnMain" mnemonicParsing="false" onAction="#showMainPage" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0; -fx-text-fill: linear-gradient(from 0px 0px to 20px 7px, #50D5A8, #A9DD87)linear-gradient(from 0px 0px to 20px 7px, #50D5A8, #A9DD87);" text="Главная" textFill="#fafafa">
-                     <font>
-                        <Font name="SF Compact Text Regular" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnCountries" mnemonicParsing="false" onAction="#showCountry" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0;" text="Страны" textFill="#fafafa">
-                     <font>
-                        <Font name="SF Compact Text Regular" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnCategories" mnemonicParsing="false" onAction="#chowCategories" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0;" text="Категории" textFill="#fafafa">
-                     <font>
-                        <Font name="SF Compact Text Regular" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#showSettings" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0;" text="Настройки" textFill="#fafafa">
-                     <font>
-                        <Font name="SF Compact Text Regular" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnUsers" mnemonicParsing="false" onAction="#showUsers" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0;" text="Пользователи" textFill="#fafafa">
-                     <font>
-                        <Font name="SF Compact Text Regular" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-         </children>
-      </Pane>
-      <Pane fx:id="pnSettingsView" layoutX="100.0" prefHeight="650.0" prefWidth="871.0" style="-fx-background-color: 0; visibility: false;" visible="false">
-         <children>
-            <ImageView layoutX="41.0" layoutY="120.0">
-               <image>
-                  <Image url="@user.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="lblTitle11" layoutX="41.0" layoutY="47.0" style="-fx-text-fill: fafafa;" text="all.Trade" textFill="#fafafa">
-               <font>
-                  <Font name="SF Compact Text Regular" size="30.0" />
-               </font>
-            </Label>
-            <Label layoutX="106.0" layoutY="135.0" text="\@chubasha" textFill="#fafafa">
-               <font>
-                  <Font name="SF Compact Text Regular" size="22.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="cmbChooseCountry11" layoutX="275.0" layoutY="131.0" prefHeight="28.0" prefWidth="192.0" promptText="Выберите страну" style="-fx-background-color: 0; -fx-border-color: #fafafa; -fx-border-radius: 10;  -fx-text-base-color: #fafafa" />
-            <Label layoutX="41.0" layoutY="190.0" style="-fx-text-fill: fafafa;" text="Администратор">
-               <font>
-                  <Font name="SF Compact Text Regular" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="41.0" layoutY="227.0" text="Время входа в аккаунт:" textFill="#fafafa">
-               <font>
-                  <Font name="SF Compact Text Regular" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="224.0" layoutY="227.0" text="12:03" textFill="#fafafa">
-               <font>
-                  <Font name="SF Compact Text Regular" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="524.0" layoutY="86.0" style="-fx-text-fill: fafafa;" text="Сообщения об ошибках:">
-               <font>
-                  <Font name="SF Compact Text Regular" size="14.0" />
-               </font>
-            </Label>
-            <TableView layoutX="524.0" layoutY="130.0" prefHeight="489.0" prefWidth="277.0">
-              <columns>
-                <TableColumn prefWidth="276.0" text="Описание ошибки" />
-              </columns>
-            </TableView>
-            <Button fx:id="btnExportPDF11" layoutX="41.0" layoutY="520.0" mnemonicParsing="false" onAction="#exportToPDF" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #F40502; -fx-background-radius: 12;" text="Выйти из аккаунта" textFill="#fafafa">
-               <font>
-                  <Font name="SF Compact Text Regular" size="12.0" />
-               </font>
-            </Button>
-         </children></Pane>
-      <Pane fx:id="pnMainView" layoutX="100.0" prefHeight="650.0" prefWidth="871.0" style="-fx-background-color: 0; visibility: false;" visible="false">
-         <children>
-            <Label layoutX="41.0" layoutY="47.0" text="all.Trade" textFill="#fafafa">
-               <font>
-                  <Font name="SF Compact Text Regular" size="30.0" />
-               </font>
-            </Label>
-            <Label layoutX="52.0" layoutY="131.0" lineSpacing="1.0" prefHeight="182.0" prefWidth="542.0" text="Добро пожаловать в приложение all.Trade, которое позволяет получать информацию о торговле товарами различных категорий между странами. Данные представлены как в чистом табличном виде, так и в обработанном варианте в виде графиков и диаграмм. Данные об импорте и экспорте продуктов представлены в разделах “Страны” и “Категории”.  При обнаружении ошибок/несостыковок в предоставляемых данных, вы можете сообщить об этом администратором в разделе “Настройки”. В том же разделе можно отправить заявку на получение роли администратора для получения дополнительных возможностей в виде добавления, редактирования и удаления данных." textFill="#fafafa" textOverrun="CLIP" wrapText="true">
-               <font>
-                  <Font name="SF Compact Text Regular" size="12.0" />
-               </font>
-            </Label>
-         </children></Pane>
       <Pane fx:id="pnCategoryView" layoutX="100.0" prefHeight="736.0" prefWidth="1078.0" style="-fx-background-color: 0; visibility: false;" visible="false">
          <children>
             <Pane fx:id="pnDataViewCat" layoutX="25.0" layoutY="165.0" prefHeight="534.0" prefWidth="1022.0" style="-fx-background-color: fafafa; -fx-border-radius: 15; -fx-background-radius: 15;">
@@ -255,7 +148,7 @@
                         <PieChart fx:id="categoryPieChart" layoutX="49.0" layoutY="55.0" prefHeight="279.0" prefWidth="358.0" />
                      </children>
                   </Pane>
-                  <BorderPane fx:id="pnCatView" layoutX="223.0" layoutY="14.0" prefHeight="315.0" prefWidth="542.0" />
+                  <BorderPane fx:id="pnCatView" layoutX="235.0" layoutY="76.0" prefHeight="315.0" prefWidth="542.0" />
                   <Button fx:id="btnExportPDF1" layoutX="257.0" layoutY="455.0" mnemonicParsing="false" onAction="#exportToPDF" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #2F3763; -fx-background-radius: 12;" text="Экспортировать в PDF" textFill="#fafafa">
                      <font>
                         <Font name="SF Compact Text Regular" size="12.0" />
@@ -470,7 +363,101 @@
             </Pane>
          </children>
       </Pane>
-      <Pane fx:id="pnUsersView" layoutX="124.0" layoutY="26.0" prefHeight="705.0" prefWidth="1085.0" style="visibility: true;" visible="false">
+      <Pane fx:id="pnMain" prefHeight="748.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E);">
+         <effect>
+            <DropShadow height="10.5" radius="5.8975" width="15.09">
+               <color>
+                  <Color opacity="0.57419353723526" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fx:id="imgLogo" fitHeight="64.0" fitWidth="70.0" layoutX="15.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Desktop/Logo.png" />
+               </image>
+            </ImageView>
+            <VBox fx:id="vbButtons" layoutY="166.0" prefHeight="315.0" prefWidth="100.0" style="-fx-background-color: 0;">
+               <children>
+                  <Button fx:id="btnMain" mnemonicParsing="false" onAction="#showMainPage" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0; -fx-text-fill: linear-gradient(from 0px 0px to 20px 7px, #50D5A8, #A9DD87)linear-gradient(from 0px 0px to 20px 7px, #50D5A8, #A9DD87);" text="Главная" textFill="#fafafa">
+                     <font>
+                        <Font name="SF Compact Text Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnCountries" mnemonicParsing="false" onAction="#showCountry" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0;" text="Страны" textFill="#fafafa">
+                     <font>
+                        <Font name="SF Compact Text Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnCategories" mnemonicParsing="false" onAction="#chowCategories" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0;" text="Категории" textFill="#fafafa">
+                     <font>
+                        <Font name="SF Compact Text Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#showSettings" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0;" text="Настройки" textFill="#fafafa">
+                     <font>
+                        <Font name="SF Compact Text Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnUsers" mnemonicParsing="false" onAction="#showUsers" onMouseEntered="#menuOnHover" onMouseExited="#menuEndHover" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: 0;" text="Пользователи" textFill="#fafafa">
+                     <font>
+                        <Font name="SF Compact Text Regular" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="pnSettingsView" layoutX="100.0" prefHeight="650.0" prefWidth="871.0" style="-fx-background-color: 0; visibility: false;" visible="false">
+         <children>
+            <ImageView layoutX="41.0" layoutY="120.0">
+               <image>
+                  <Image url="@user.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblTitle11" layoutX="41.0" layoutY="47.0" style="-fx-text-fill: fafafa;" text="all.Trade" textFill="#fafafa">
+               <font>
+                  <Font name="SF Compact Text Regular" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="106.0" layoutY="135.0" text="\@chubasha" textFill="#fafafa">
+               <font>
+                  <Font name="SF Compact Text Regular" size="22.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbChooseCountry11" layoutX="275.0" layoutY="131.0" prefHeight="28.0" prefWidth="192.0" promptText="Выберите страну" style="-fx-background-color: 0; -fx-border-color: #fafafa; -fx-border-radius: 10;  -fx-text-base-color: #fafafa" />
+            <Label layoutX="41.0" layoutY="190.0" style="-fx-text-fill: fafafa;" text="Администратор">
+               <font>
+                  <Font name="SF Compact Text Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="227.0" text="Время входа в аккаунт:" textFill="#fafafa">
+               <font>
+                  <Font name="SF Compact Text Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="224.0" layoutY="227.0" text="12:03" textFill="#fafafa">
+               <font>
+                  <Font name="SF Compact Text Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="524.0" layoutY="86.0" style="-fx-text-fill: fafafa;" text="Сообщения об ошибках:">
+               <font>
+                  <Font name="SF Compact Text Regular" size="14.0" />
+               </font>
+            </Label>
+            <TableView layoutX="524.0" layoutY="130.0" prefHeight="489.0" prefWidth="277.0">
+              <columns>
+                <TableColumn prefWidth="276.0" text="Описание ошибки" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnExportPDF11" layoutX="41.0" layoutY="520.0" mnemonicParsing="false" onAction="#exportToPDF" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #F40502; -fx-background-radius: 12;" text="Выйти из аккаунта" textFill="#fafafa">
+               <font>
+                  <Font name="SF Compact Text Regular" size="12.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <Pane fx:id="pnUsersView" layoutX="124.0" layoutY="26.0" prefHeight="705.0" prefWidth="1085.0" style="visibility: false;" visible="false">
          <children>
             <Label fx:id="lblTitle111" layoutX="3.0" style="-fx-text-fill: fafafa;" text="all.Trade" textFill="#fafafa">
                <font>
@@ -519,5 +506,18 @@
                </bottom></BorderPane>
          </children>
       </Pane>
+      <Pane fx:id="pnMainView" layoutX="100.0" prefHeight="650.0" prefWidth="871.0" style="-fx-background-color: 0; visibility: true;" visible="false">
+         <children>
+            <Label layoutX="41.0" layoutY="47.0" text="all.Trade" textFill="#fafafa">
+               <font>
+                  <Font name="SF Compact Text Regular" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="131.0" lineSpacing="1.0" prefHeight="182.0" prefWidth="542.0" text="Добро пожаловать в приложение all.Trade, которое позволяет получать информацию о торговле товарами различных категорий между странами. Данные представлены как в чистом табличном виде, так и в обработанном варианте в виде графиков и диаграмм. Данные об импорте и экспорте продуктов представлены в разделах “Страны” и “Категории”.  При обнаружении ошибок/несостыковок в предоставляемых данных, вы можете сообщить об этом администратором в разделе “Настройки”. В том же разделе можно отправить заявку на получение роли администратора для получения дополнительных возможностей в виде добавления, редактирования и удаления данных." textFill="#fafafa" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font name="SF Compact Text Regular" size="12.0" />
+               </font>
+            </Label>
+         </children></Pane>
    </children>
 </AnchorPane>
