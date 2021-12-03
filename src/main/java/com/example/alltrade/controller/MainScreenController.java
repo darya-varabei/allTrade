@@ -618,6 +618,9 @@ public class MainScreenController implements Initializable {
     }
 
     @FXML void setupAccess() {
-        btnUsers.setVisible(false);
+        if (user.getRole() == "Пользователь") {
+            btnUsers.setVisible(false);
+            listMessages.setVisible(false);
+        }
     }
 }

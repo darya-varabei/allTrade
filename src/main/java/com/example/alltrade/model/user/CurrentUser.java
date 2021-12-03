@@ -35,6 +35,10 @@ public class CurrentUser extends User {
         return instance;
     }
 
+    public static CurrentUser getUser() {
+        return instance;
+    }
+
     public static void nullInstance() {
         instance = null;
     }

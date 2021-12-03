@@ -2,16 +2,14 @@ package com.example.alltrade.controller.table;
 
 import com.example.alltrade.model.country.CountryCategory;
 import com.example.alltrade.model.country.CountryImportExport;
+import com.example.alltrade.model.user.CurrentUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -33,8 +31,16 @@ public class CountryCatTableController implements Initializable {
     @FXML
     private TableColumn<CountryCategory, Double> importColumn;
 
+    @FXML private ComboBox<String> cmbChooseCountry;
+    @FXML private ComboBox<String> cmbChooseYear;
+    @FXML private ComboBox<String> cmbChooseCategory;
+    @FXML private TextField txtValue;
+    @FXML private Button savedataButton;
+
     @FXML
     private Label lblSearch;
+
+    private CurrentUser user;
 
     @FXML
     private TextField predicateField;
@@ -43,6 +49,7 @@ public class CountryCatTableController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        setupAccess();
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
         exportColumn.setCellValueFactory(new PropertyValueFactory<>("exportValue"));
@@ -89,5 +96,15 @@ public class CountryCatTableController implements Initializable {
 
     @FXML private void saveData() {
 
+    }
+
+    @FXML private void setupAccess() {
+        if (CurrentUser.getUser().getRole() == "Пользовтаель") {
+            cmbChooseCountry.setVisible(false);
+            cmbChooseYear.setVisible(false);
+            cmbChooseCategory.setVisible(false);
+            savedataButton.setVisible(false);
+            txtValue.setVisible(false);
+        }
     }
 }
