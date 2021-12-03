@@ -515,11 +515,6 @@
                   <Font name="SF Compact Text Regular" size="14.0" />
                </font>
             </Label>
-            <TableView layoutX="524.0" layoutY="130.0" prefHeight="489.0" prefWidth="420.0">
-              <columns>
-                <TableColumn prefWidth="276.0" text="Описание ошибки" />
-              </columns>
-            </TableView>
             <Button fx:id="btnExit" layoutX="43.0" layoutY="596.0" mnemonicParsing="false" onAction="#exitAccount" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #F40502; -fx-background-radius: 12;" text="Выйти из аккаунта" textFill="#fafafa">
                <font>
                   <Font name="SF Compact Text Regular" size="12.0" />
@@ -531,6 +526,7 @@
                   <Font name="SF Compact Text Regular" size="12.0" />
                </font>
             </Button>
+            <ListView fx:id="listMessages" layoutX="524.0" layoutY="127.0" prefHeight="522.0" prefWidth="415.0" />
          </children></Pane>
    </children>
 </AnchorPane>

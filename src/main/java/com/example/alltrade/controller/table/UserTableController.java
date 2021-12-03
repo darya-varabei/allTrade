@@ -1,5 +1,6 @@
 package com.example.alltrade.controller.table;
 
+import com.example.alltrade.connector.Connection;
 import com.example.alltrade.model.user.UserInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -131,25 +132,33 @@ public class UserTableController implements Initializable {
     }
 
     @FXML private void addUser() {
+        String response = "";
         UserInfo userAdd = new UserInfo(0, txtLogin.getText(), txtPassword.getText(), cmbChooseUserCountry.getValue(), "", cmbChooseRole.getValue());
-        dataList.add(userAdd);
-        userTable.refresh();
+        Connection.usersManager.sendObject("addUser", userAdd);
+        if ((response = Connection.connectionManager.readString()) == "success") {
+            dataList.add(userAdd);
+            userTable.refresh();
+        }
     }
 
     @FXML private void updateUser() {
+        String response = "";
         user = userTable.getSelectionModel().getSelectedItem();
         user.setLogin(txtLogin.getText());
         user.setPassword(txtPassword.getText());
         user.setCountry(cmbChooseUserCountry.getValue());
         user.setCountry(cmbChooseRole.getValue());
-
-        removeUser(user.getId());
-        dataList.add(user);
+        Connection.connectionManager.sendObject("updateUser", user);
+        if ((response = Connection.connectionManager.readString()) == "success") {
+            removeUser(user.getId());
+            dataList.add(user);
+        }
     }
 
     @FXML private void deleteUser() {
         user = userTable.getSelectionModel().getSelectedItem();
         removeUser(user.getId());
+        Connection.connectionManager.sendObject("deleteUser", String.valueOf(user.getId()));
         userTable.refresh();
     }
 

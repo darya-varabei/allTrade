@@ -143,31 +143,31 @@ public class LoginController {
 
     @FXML
     private void connect() {
-//        var connection = new Connection();
-//        if (txtPort.getText().isEmpty() == false && txtAdress.getText().isEmpty() == false && txtPort.getText().matches("[1-9]+")) {
-//            connection.connectToServer(
-//                    txtAdress.getText(), Integer.parseInt(txtPort.getText())
-//            );
-//            manager = connection.connectionManager;
-//
-//            if (manager != null) {
-//                lblInvalidConnection.setVisible(false);
+        var connection = new Connection();
+        if (txtPort.getText().isEmpty() == false && txtAdress.getText().isEmpty() == false && txtPort.getText().matches("[1-9]+")) {
+            connection.connectToServer(
+                    txtAdress.getText(), Integer.parseInt(txtPort.getText())
+            );
+            manager = connection.connectionManager;
+
+            if (manager != null) {
+                lblConnectionError.setVisible(false);
                 new SlideOutLeft(connectionPane).play();
                 new SlideInLeft(authoPane).play();
                 connectionPane.toBack();
                 authoPane.toFront();
                 registButton.setDisable(false);
                 authoButton.setDisable(false);
-//            } else {
-//        lblConnectionError.setVisible(true);
-//                lblInvalidConnection.setVisible(true);
-//                lblInvalidConnection.toFront();
-//            }
-//        }
-//        else {
-//        lblConnectionError.setVisible(true);
-//            lblInvalidConnection.setVisible(true);
-//            lblInvalidConnection.toFront();
-//        }
+            } else {
+        lblConnectionError.setVisible(true);
+                lblConnectionError.setVisible(true);
+                lblConnectionError.toFront();
+            }
+        }
+        else {
+        lblConnectionError.setVisible(true);
+            lblConnectionError.setVisible(true);
+            lblConnectionError.toFront();
+        }
     }
 }
