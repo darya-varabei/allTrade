@@ -528,5 +528,19 @@
             </Button>
             <ListView fx:id="listMessages" layoutX="524.0" layoutY="127.0" prefHeight="522.0" prefWidth="415.0" />
          </children></Pane>
+      <Pane fx:id="systemButtonsPane" layoutX="1000.0" prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnHide" mnemonicParsing="false" onAction="#hideScene" prefHeight="47.0" prefWidth="53.0" style="-fx-background-color: 0; -fx-text-fill: fafaffa;" text="–" textFill="#fafafa">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnClose" layoutX="55.0" mnemonicParsing="false" onAction="#closeScene" prefHeight="47.0" prefWidth="53.0" style="-fx-background-color: 0; -fx-text-fill: fafaffa;" text="x" textFill="#fafafa">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -9,15 +9,19 @@ import com.example.alltrade.model.user.CurrentUser;
 import com.example.alltrade.model.user.UserInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -31,6 +35,12 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private Pane pnMainView;
+
+    @FXML
+    private Pane systemButtonsPane;
+
+    @FXML private Button btnHide;
+    @FXML private Button btnClose;
 
     @FXML
     private Pane pnMain;
@@ -369,6 +379,7 @@ public class MainScreenController implements Initializable {
             btnUsers.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             btnSettings.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             pnCategoryView.toFront();
+            systemButtonsPane.toFront();
         }
     }
 
@@ -392,6 +403,7 @@ public class MainScreenController implements Initializable {
             btnMain.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             btnUsers.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             btnSettings.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            systemButtonsPane.toFront();
         }
     }
 
@@ -410,6 +422,7 @@ public class MainScreenController implements Initializable {
             btnCountries.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             btnUsers.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             btnSettings.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            systemButtonsPane.toFront();
         }
     }
 
@@ -437,6 +450,7 @@ public class MainScreenController implements Initializable {
             btnMain.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             btnUsers.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             btnCountries.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            systemButtonsPane.toFront();
         }
     }
 
@@ -479,6 +493,7 @@ public class MainScreenController implements Initializable {
             btnMain.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             btnSettings.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
             btnCountries.setStyle("-fx-background-color: #3B4576; -fx-text-fill: #fafafa");
+            systemButtonsPane.toFront();
         }
     }
 
@@ -582,5 +597,18 @@ public class MainScreenController implements Initializable {
         messages = FXCollections.observableArrayList(Connection.messageManager.getMessages());
         listMessages.setItems(messages);
         listMessages.refresh();
+    }
+
+    @FXML
+    private void hideScene(ActionEvent event) {
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setIconified(true);
+    }
+
+    @FXML
+    private void closeScene(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.close();
+        Connection.connectionManager.closeConnection();
     }
 }

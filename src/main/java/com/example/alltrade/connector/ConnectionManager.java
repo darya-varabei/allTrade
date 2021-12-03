@@ -21,6 +21,17 @@ public class ConnectionManager {
         }
     }
 
+    public void closeConnection() throws IOException {
+        try {
+            sendString("close");
+            sendMessage.close();
+            readMessage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void sendObject(String code, Object object) {
         try {
             sendString(code);
