@@ -3,7 +3,6 @@ package com.example.alltrade.controller;
 import animatefx.animation.*;
 import com.example.alltrade.FxmlLoader;
 import com.example.alltrade.connector.Connection;
-import com.example.alltrade.connector.MessageManager;
 import com.example.alltrade.model.country.Country;
 import com.example.alltrade.model.user.CurrentUser;
 import com.example.alltrade.model.user.UserInfo;
@@ -307,11 +306,16 @@ public class MainScreenController implements Initializable {
     private Label lblLastAccess;
     @FXML
     private ListView listMessages;
+    private Boolean dataFlag = false;
 
     private UserInfo user = new UserInfo(0, "", "", "", "", "");
 
     @FXML private void setupData() {
-        fillUpComboBox();
+        if (dataFlag == false) {
+            fillUpComboBox();
+            setupAccess();
+            dataFlag = true;
+        }
     }
 
     @FXML private void fillUpComboBox() {
@@ -356,6 +360,7 @@ public class MainScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("UserTable.fxml");
         borderPnUsers.setCenter(view);
@@ -610,5 +615,9 @@ public class MainScreenController implements Initializable {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.close();
         Connection.connectionManager.closeConnection();
+    }
+
+    @FXML void setupAccess() {
+        btnUsers.setVisible(false);
     }
 }

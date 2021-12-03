@@ -2,6 +2,7 @@ package com.example.alltrade.controller.table;
 
 import com.example.alltrade.connector.Connection;
 import com.example.alltrade.model.country.CountryImportExport;
+import com.example.alltrade.model.user.CurrentUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -66,6 +67,8 @@ public class CountryTableController implements Initializable {
     @FXML
     private Button clearDataButton;
 
+    CurrentUser user;
+
     @FXML
     void addData(ActionEvent event) {
         if (txtCountry.getText() != "" && txtImport.getText() != "" && txtExport.getText() != "") {
@@ -123,6 +126,7 @@ public class CountryTableController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        setupAccess();
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
         importColumn.setCellValueFactory(new PropertyValueFactory<>("importValue"));
         ExportColumn.setCellValueFactory(new PropertyValueFactory<>("ExportValue"));
@@ -165,6 +169,19 @@ public class CountryTableController implements Initializable {
         SortedList<CountryImportExport> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind((tableCountry.comparatorProperty()));
         tableCountry.setItems(sortedData);
+    }
+
+    private void setupAccess() {
+        if (user.getRole() == "Пользователь") {
+            btnAddData.setVisible(false);
+            updateDataButton.setVisible(false);
+            deleteDataButton.setVisible(false);
+            clearDataButton.setVisible(false);
+            txtCountry.setVisible(false);
+            txtImport.setVisible(false);
+            txtExport.setVisible(false);
+            cmbChooseYear.setVisible(false);
+        }
     }
 }
 
