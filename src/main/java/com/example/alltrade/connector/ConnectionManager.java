@@ -21,8 +21,9 @@ public class ConnectionManager {
         }
     }
 
-    public void sendObject(Object object) {
+    public void sendObject(String code, Object object) {
         try {
+            sendString(code);
             sendMessage.writeObject(object);
         } catch (IOException e) {
             e.printStackTrace();

@@ -2,6 +2,8 @@ package com.example.alltrade.controller;
 
 import com.example.alltrade.connector.Connection;
 import com.example.alltrade.connector.ConnectionManager;
+import com.example.alltrade.model.user.CurrentUser;
+import com.example.alltrade.model.user.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -68,13 +70,13 @@ public class LoginController {
         private Button btnSetConnection;
 
         @FXML
-        private Label lblInvalidConnection;
+        private Label lblRegistrationError;
 
     @FXML
-    private Label lblPasswordNotMatch;
+    private Label lblLoginError;
 
     @FXML
-    private Label lblLoginExists;
+    private Label lblConnectionError;
 
     private Scene secondScene;
     private ConnectionManager manager;
@@ -103,10 +105,40 @@ public class LoginController {
         authoPane.toFront();
     }
 
-    @FXML
-    public void EnterMainScreen(ActionEvent event) {
-        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        primaryStage.setScene(secondScene);
+    @FXML private void completeRegistration(ActionEvent event) {
+        if (loPassword.getText() == repPasswordField.getText()) {
+            lblRegistrationError.setText("Введенные пароли не совпадают");
+            lblRegistrationError.setVisible(true);
+            return;
+        }
+        manager.sendObject("regist", new User(login.getText(), loPassword.getText()));
+        if(CurrentUser.getInstance((CurrentUser) manager.readObject()) != null) {
+            Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            primaryStage.setScene(secondScene);
+        }
+        else {
+            CurrentUser.nullInstance();
+            if (manager.readString() == "exists") {
+                lblLoginError.setText("Данный логин уже существует");
+                lblLoginError.setVisible(true);
+            }
+            else {
+                CurrentUser.nullInstance();
+                lblLoginError.setVisible(true);
+            }
+        }
+    }
+
+    @FXML private void completeLogin(ActionEvent event) {
+        manager.sendObject("authorize", new User(login.getText(), loPassword.getText()));
+        if(CurrentUser.getInstance((CurrentUser) manager.readObject()) != null) {
+            Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            primaryStage.setScene(secondScene);
+        }
+        else {
+            CurrentUser.nullInstance();
+            lblLoginError.setVisible(true);
+        }
     }
 
     @FXML
@@ -127,11 +159,13 @@ public class LoginController {
                 registButton.setDisable(false);
                 authoButton.setDisable(false);
 //            } else {
+//        lblConnectionError.setVisible(true);
 //                lblInvalidConnection.setVisible(true);
 //                lblInvalidConnection.toFront();
 //            }
 //        }
 //        else {
+//        lblConnectionError.setVisible(true);
 //            lblInvalidConnection.setVisible(true);
 //            lblInvalidConnection.toFront();
 //        }

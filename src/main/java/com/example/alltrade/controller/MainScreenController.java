@@ -198,6 +198,9 @@ public class MainScreenController implements Initializable {
     private Label lblCommonExpImpPlot1;
 
     @FXML
+    private Label lblCatTables;
+
+    @FXML
     private AreaChart<?, ?> categoryAreaChart;
 
     @FXML
@@ -425,24 +428,28 @@ public class MainScreenController implements Initializable {
     public void showCountryCommonTable() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryTable.fxml");
+        lblCommonExpImpPlot.setText("Общая таблица импорта и экспорта");
         mainPane.setCenter(view);
     }
 
     public void showCountryCatTable() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryCatTable.fxml");
+        lblCommonExpImpPlot.setText("Таблица импорта и экспорта по категориям");
         mainPane.setCenter(view);
     }
 
     public void showCatImportTable() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CategoryImportTable.fxml");
+        lblCatTables.setText("Таблица импорта по категориям");
         pnCatView.setCenter(view);
     }
 
     public void showCatExport() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CategoryExportTable.fxml");
+        lblCatTables.setText("Таблица экспорта по категориям");
         pnCatView.setCenter(view);
     }
 

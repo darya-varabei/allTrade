@@ -1,17 +1,17 @@
 package com.example.alltrade.controller.table;
 
+import com.example.alltrade.connector.Connection;
 import com.example.alltrade.model.country.CountryImportExport;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,6 +40,86 @@ public class CountryTableController implements Initializable {
     private TextField predicateField;
 
     private final ObservableList<CountryImportExport> dataList = FXCollections.observableArrayList();
+    private CountryImportExport model = new CountryImportExport();
+
+    @FXML
+    private TextField txtCountry;
+
+    @FXML
+    private TextField txtExport;
+
+    @FXML
+    private ComboBox<String> cmbChooseYear;
+
+    @FXML
+    private TextField txtImport;
+
+    @FXML
+    private Button btnAddData;
+
+    @FXML
+    private Button updateDataButton;
+
+    @FXML
+    private Button deleteDataButton;
+
+    @FXML
+    private Button clearDataButton;
+
+    @FXML
+    void addData(ActionEvent event) {
+        if (txtCountry.getText() != "" && txtImport.getText() != "" && txtExport.getText() != "") {
+            CountryImportExport dataAdd = new CountryImportExport(1, txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
+            Connection.connectionManager.sendObject("addCountry", dataAdd);
+            //lblInvalidInput.setVisible(false);
+        }
+        else {
+           // lblInvalidInput.setVisible(true);
+        }
+    }
+
+    @FXML
+    void clearData(ActionEvent event) {
+        txtCountry.clear();
+        txtImport.clear();
+        txtExport.clear();
+        cmbChooseYear.setValue("Выберите роль");
+    }
+
+    @FXML
+    void deleteData(ActionEvent event) {
+        if (cmbChooseYear.getValue() != "Выберите год" && txtImport.getText() != "" && txtExport.getText() != "" && txtCountry.getText() != "") {
+            CountryImportExport dataUpd = new CountryImportExport(0, txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
+            Connection.connectionManager.sendObject("deleteCountry", dataUpd);
+            // lblInvalidInput.setVisible(false);
+        }
+        else {
+            // lblInvalidInput.setVisible(true);
+        }
+    }
+
+    @FXML
+    void updateData(ActionEvent event) {
+        if (cmbChooseYear.getValue() != "Выберите год" && txtImport.getText() != "" && txtExport.getText() != "" && txtCountry.getText() != "") {
+            CountryImportExport dataUpd = new CountryImportExport(0, txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
+            Connection.connectionManager.sendObject("editCountry", dataUpd);
+           // lblInvalidInput.setVisible(false);
+        }
+        else {
+           // lblInvalidInput.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void clickItem(MouseEvent event) {
+        if (event.getClickCount() == 2) {
+            model = tableCountry.getSelectionModel().getSelectedItem();
+            txtCountry.setText(model.getCountry());
+            txtImport.setText(String.valueOf(model.getImportValue()));
+            txtExport.setText(String.valueOf(model.getExportValue()));
+            cmbChooseYear.setValue(String.valueOf(model.getYear()));
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -48,11 +128,11 @@ public class CountryTableController implements Initializable {
         ExportColumn.setCellValueFactory(new PropertyValueFactory<>("ExportValue"));
         netExportColumn.setCellValueFactory(new PropertyValueFactory<>("netExport"));
 
-        CountryImportExport case1 = new CountryImportExport(1, 2009, 2345.89, 12456.9,3256.0);
-        CountryImportExport case2 = new CountryImportExport(1, 2009, 2345.89, 12456.9,3256.0);
-        CountryImportExport case3 = new CountryImportExport(1, 2009, 2345.89, 12456.9,3256.0);
-        CountryImportExport case4 = new CountryImportExport(1, 2009, 2345.89, 12456.9,3256.0);
-        CountryImportExport case5 = new CountryImportExport(1, 2009, 2345.89, 12456.9,3256.0);
+        CountryImportExport case1 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
+        CountryImportExport case2 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
+        CountryImportExport case3 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
+        CountryImportExport case4 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
+        CountryImportExport case5 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
   dataList.addAll(case1, case2, case3, case4, case5);
 
   FilteredList<CountryImportExport> filteredData = new FilteredList<>(dataList, b -> true);

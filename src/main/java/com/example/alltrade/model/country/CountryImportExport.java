@@ -4,18 +4,13 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class CountryImportExport extends CountryMain implements Serializable {
-//    private Integer countryId;
-//    private Integer year;
-//    private Double importValue;
-//    private Double exportValue;
+
+    private String country;
     private Double netExport;
 
-    public CountryImportExport(Integer countryId, Integer year, Double importValue, Double exportValue, Double netExport) {
-//        this.countryId = countryId;
-//        this.year = year;
-//        this.importValue = importValue;
-//        this.exportValue = exportValue;
+    public CountryImportExport(Integer countryId, String country, Integer year, Double importValue, Double exportValue, Double netExport) {
         super(countryId, year, importValue, exportValue);
+        this.country = country;
         this.netExport = netExport;
     }
 
@@ -28,44 +23,20 @@ public class CountryImportExport extends CountryMain implements Serializable {
 
     }
 
-//    public int getCountryId() {
-//        return countryId;
-//    }
-//
-//    public void setCountryId(int authorBook) {
-//        this.countryId = countryId;
-//    }
-//
-//    public int getYear() {
-//        return year;
-//    }
-//
-//    public void setYear(Integer year) {
-//        this.year = year;
-//    }
-//
-//    public double getImportValue() {
-//        return importValue;
-//    }
-//
-//    public void setImportValue(double importValue) {
-//        this.importValue = importValue;
-//    }
-//
-//    public double getExportValue() {
-//        return exportValue;
-//    }
-//
-//    public void setExportValue(double exportValue) {
-//        this.exportValue = exportValue;
-//    }
-
     public Double getNetExport() {
         return netExport;
     }
 
     public void setNetExport(double netExport) {
         this.netExport = netExport;
+    };
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     };
 
     @Override

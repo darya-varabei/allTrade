@@ -4,17 +4,10 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class CountryCategory extends CountryMain implements Serializable {
-//    private Integer countryId;
-//    private Integer year;
     private String category;
-//    private Double importValue;
-//    private Double exportValue;
 
     public CountryCategory(Integer countryId, Integer year, Double importValue, Double exportValue, String category) {
-//        this.countryId = countryId;
-//        this.year = year;
-//        this.importValue = importValue;
-//        this.exportValue = exportValue;
+
         super(countryId, year, importValue, exportValue);
         this.category = category;
     }
@@ -27,38 +20,6 @@ public class CountryCategory extends CountryMain implements Serializable {
         super(countryId);
 
     }
-
-//    public int getCountryId() {
-//        return countryId;
-//    }
-//
-//    public void setCountryId(int authorBook) {
-//        this.countryId = countryId;
-//    }
-//
-//    public int getYear() {
-//        return year;
-//    }
-//
-//    public void setYear(Integer year) {
-//        this.year = year;
-//    }
-//
-//    public double getImportValue() {
-//        return importValue;
-//    }
-//
-//    public void setImportValue(double importValue) {
-//        this.importValue = importValue;
-//    }
-//
-//    public double getExportValue() {
-//        return exportValue;
-//    }
-//
-//    public void setExportValue(double exportValue) {
-//        this.exportValue = exportValue;
-//    }
 
     public String getCategory() {
         return category;

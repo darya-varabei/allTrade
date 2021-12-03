@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="383.0" prefWidth="673.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@inputView.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.CountryTableController">
+<AnchorPane prefHeight="453.0" prefWidth="773.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@inputView.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.CountryTableController">
    <children>
-      <TableView fx:id="tableCountry" editable="true" layoutY="68.0" prefHeight="255.0" prefWidth="465.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
+      <TableView fx:id="tableCountry" onMouseClicked="#clickItem" editable="true" layoutY="68.0" prefHeight="272.0" prefWidth="465.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
         <columns>
           <TableColumn fx:id="yearColumn" prefWidth="75.0" resizable="false" text="Год" />
           <TableColumn fx:id="importColumn" prefWidth="130.0" resizable="false" text="Импорт" />
@@ -26,23 +26,23 @@
          </font>
       </Label>
       <TextField fx:id="predicateField" layoutX="146.0" layoutY="14.0" />
-      <TextField fx:id="txtCountry" layoutX="477.0" layoutY="63.0" prefHeight="27.0" prefWidth="178.0" promptText="Страна" style="-fx-font-size: 11; -fx-font-family: SF Compact Text;">
+      <TextField fx:id="txtCountry" layoutX="534.0" layoutY="68.0" prefHeight="27.0" prefWidth="178.0" promptText="Страна" style="-fx-font-size: 11; -fx-font-family: SF Compact Text;">
          <font>
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtExport" layoutX="479.0" layoutY="179.0" prefHeight="27.0" prefWidth="178.0" promptText="Экспорт" style="-fx-font-size: 11; -fx-font-family: SF Compact Text;">
+      <TextField fx:id="txtExport" layoutX="536.0" layoutY="184.0" prefHeight="27.0" prefWidth="178.0" promptText="Экспорт" style="-fx-font-size: 11; -fx-font-family: SF Compact Text;">
          <font>
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>
       </TextField>
-      <ComboBox fx:id="cmbChooseYear" layoutX="483.0" layoutY="237.0" maxHeight="20.0" prefHeight="20.0" prefWidth="170.0" promptText="Выберите год" style="-fx-background-color: 0; -fx-border-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-border-radius: 10; -fx-text-base-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E);" />
-      <TextField fx:id="txtImport" layoutX="478.0" layoutY="123.0" prefHeight="27.0" prefWidth="178.0" promptText="Импорт" style="-fx-font-size: 11; -fx-font-family: SF Compact Text;">
+      <ComboBox fx:id="cmbChooseYear" layoutX="540.0" layoutY="242.0" maxHeight="20.0" prefHeight="20.0" prefWidth="170.0" promptText="Выберите год" style="-fx-background-color: 0; -fx-border-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-border-radius: 10; -fx-text-base-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E);" />
+      <TextField fx:id="txtImport" layoutX="535.0" layoutY="128.0" prefHeight="27.0" prefWidth="178.0" promptText="Импорт" style="-fx-font-size: 11; -fx-font-family: SF Compact Text;">
          <font>
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>
       </TextField>
-      <Button fx:id="btnAddData" layoutX="40.0" layoutY="336.0" mnemonicParsing="false" onAction="#addData" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-background-radius: 7;" text="Добавить" textFill="#fafafa">
+      <Button fx:id="btnAddData" layoutX="38.0" layoutY="388.0" mnemonicParsing="false" onAction="#addData" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-background-radius: 7;" text="Добавить" textFill="#fafafa">
          <font>
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>
@@ -50,17 +50,17 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button fx:id="updateDataButton" layoutX="156.0" layoutY="337.0" mnemonicParsing="false" onAction="#updateData" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-background-radius: 7;" text="Изменить" textFill="#fafafa">
+      <Button fx:id="updateDataButton" disable="true" layoutX="154.0" layoutY="389.0" mnemonicParsing="false" onAction="#updateData" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-background-radius: 7;" text="Изменить" textFill="#fafafa">
          <font>
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>
       </Button>
-      <Button fx:id="deleteDataButton" layoutX="273.0" layoutY="337.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-background-radius: 7;" text="Удалить" textFill="#fafafa">
+      <Button fx:id="deleteDataButton" disable="true" layoutX="271.0" layoutY="389.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-background-radius: 7;" text="Удалить" textFill="#fafafa">
          <font>
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>
       </Button>
-      <Button fx:id="clearDataButton" layoutX="380.0" layoutY="336.0" mnemonicParsing="false" onAction="#clearData" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-background-radius: 7;" text="Очистить" textFill="#fafafa">
+      <Button fx:id="clearDataButton" layoutX="378.0" layoutY="388.0" mnemonicParsing="false" onAction="#clearData" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E) linear-gradient(from 100px 0px to 970px 650px, #3B4576, #22274E); -fx-background-radius: 7;" text="Очистить" textFill="#fafafa">
          <font>
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>

@@ -86,4 +86,8 @@ public class CountryCatTableController implements Initializable {
         sortedData.comparatorProperty().bind((tableCatCountry.comparatorProperty()));
         tableCatCountry.setItems(sortedData);
     }
+
+    @FXML private void saveData() {
+
+    }
 }

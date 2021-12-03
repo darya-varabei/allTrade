@@ -28,10 +28,14 @@ public class CurrentUser extends User {
         this.role = role;
     }
 
-    public static CurrentUser getInstance(String login, String password, String country, String role) {
+    public static CurrentUser getInstance(CurrentUser user) {//(String login, String password, String country, String role) {
         if (instance == null) {
-            instance = new CurrentUser(login, password, country, role);
+            instance = new CurrentUser(user.login, user.password, user.country, user.role);
         }
         return instance;
+    }
+
+    public static void nullInstance() {
+        instance = null;
     }
 }
