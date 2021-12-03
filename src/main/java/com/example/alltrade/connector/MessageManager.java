@@ -12,10 +12,10 @@ public class MessageManager extends ConnectionManager{
         super(clientSocket);
     }
 
-    public LinkedList<UserInfo> getMessages() {
+    public LinkedList<String> getMessages() {
         sendString("messages");
         try {
-            return (LinkedList<UserInfo>) readMessage.readObject();
+            return (LinkedList<String>) readMessage.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

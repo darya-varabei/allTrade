@@ -2,21 +2,21 @@ package com.example.alltrade.controller;
 
 import animatefx.animation.*;
 import com.example.alltrade.FxmlLoader;
+import com.example.alltrade.connector.Connection;
+import com.example.alltrade.connector.MessageManager;
+import com.example.alltrade.model.country.Country;
+import com.example.alltrade.model.user.CurrentUser;
 import com.example.alltrade.model.user.UserInfo;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -90,7 +90,7 @@ public class MainScreenController implements Initializable {
     private Label lblGDPValue;
 
     @FXML
-    private ComboBox<?> cmbChooseCountry;
+    private ComboBox<String> cmbChooseCountry;
 
     @FXML
     private Pane pnDataView;
@@ -210,6 +210,9 @@ public class MainScreenController implements Initializable {
     private Button btnExportPDF1;
 
     @FXML
+    private Button btnCatExportTable;
+
+    @FXML
     private Label lblTitle1;
 
     @FXML
@@ -226,6 +229,9 @@ public class MainScreenController implements Initializable {
 
     @FXML
     private ComboBox<?> cmbChooseCountry1;
+
+    @FXML
+    private ComboBox<Integer> cmbChooseYear;
 
     @FXML
     private Pane pnTablePane;
@@ -275,7 +281,69 @@ public class MainScreenController implements Initializable {
     @FXML
     private Button btnImportShare;
 
+    @FXML
+    private Button btnSendMessages;
+
+    @FXML
+    private TextArea txtMessage;
+
+    private Connection connection;
+
+    @FXML
+    private Label lblUserName;
+    @FXML
+    private Label lblUserRole;
+    @FXML
+    private Label lblLastAccess;
+    @FXML
+    private ListView listMessages;
+
     private UserInfo user = new UserInfo(0, "", "", "", "", "");
+
+    @FXML private void setupData() {
+        fillUpComboBox();
+    }
+
+    @FXML private void fillUpComboBox() {
+        ObservableList<String> data;
+        ObservableList<Integer> years;
+        data = FXCollections.observableArrayList(Connection.connectionManager.getStrings("countries"));
+        years = FXCollections.observableArrayList(Connection.connectionManager.getYears());
+        cmbChooseCountry.setItems(data);
+        cmbChooseYear.setItems(years);
+        cmbChooseCountry.setOnAction(e -> enableCountry());
+        cmbChooseYear.setOnAction(e -> enableCountryAndYears());
+    }
+
+    private void enableCountry() {
+        showCountryInfo();
+        btnImageTable1.setDisable(false);
+        btnImageTable2.setDisable(false);
+        btnChartCountry.setDisable(false);
+        if (cmbChooseYear.getValue() != 0) {
+            btnImportStructure.setDisable(false);
+            btnExportStructure.setDisable(false);
+        }
+    }
+
+    @FXML private void showCountryInfo() {
+        Connection.connectionManager.sendString(cmbChooseCountry.getValue());
+        Country country = new Country();
+        country = (Country)Connection.connectionManager.readObject();
+        imgFlag.setImage(country.getFlag());
+        lblCountry.setText(country.getName());
+        lblAreaValue.setText(String.valueOf(country.getArea()));
+        lblPopValue.setText(country.getPopulation() + "млн чел");
+        lblGDPValue.setText(country.getJdp() + "$");
+    }
+
+    private void enableCountryAndYears() {
+        if (cmbChooseCountry.getValue() != "Выберите страну") {
+            btnImportStructure.setDisable(false);
+            btnExportStructure.setDisable(false);
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FxmlLoader object = new FxmlLoader();
@@ -327,8 +395,6 @@ public class MainScreenController implements Initializable {
         }
     }
 
-
-
     @FXML
     void showMainPage() {
         if (pnMainView.isVisible() == false) {
@@ -359,6 +425,7 @@ public class MainScreenController implements Initializable {
     void showSettings() {
         if (pnSettingsView.isVisible() == false) {
             pnSettingsView.setVisible(true);
+            getAllMessages();
             new FadeInDown(pnSettingsView).play();
             pnCountryView.setVisible(false);
             pnCategoryView.setVisible(false);
@@ -493,5 +560,27 @@ public class MainScreenController implements Initializable {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CatPercentExportChart.fxml");
         pnCatView.setCenter(view);
+    }
+
+    @FXML
+    private void exitAccount() {
+        CurrentUser.nullInstance();
+    }
+
+    @FXML
+    private void sendMessage() {
+        if (txtMessage.getText() != "") {
+            listMessages.getItems().add(txtMessage.getText());
+            listMessages.refresh();
+            Connection.connectionManager.sendObject("error", txtMessage.getText());
+        }
+    }
+
+    @FXML
+    private void getAllMessages() {
+        ObservableList<String> messages;
+        messages = FXCollections.observableArrayList(Connection.messageManager.getMessages());
+        listMessages.setItems(messages);
+        listMessages.refresh();
     }
 }

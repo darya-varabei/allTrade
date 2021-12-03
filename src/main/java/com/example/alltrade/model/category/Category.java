@@ -7,6 +7,7 @@ public class Category implements Serializable {
     protected Integer countryId;
     protected String country;
     protected Integer year;
+    protected Double value;
 
     public Category(Integer year, Integer countryId, String country) {
         this.year = year;
