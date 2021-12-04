@@ -24,7 +24,7 @@ public class CountryManager  extends ConnectionManager {
         return null;
     }
 
-    public LinkedList<CountryCategory> getCountryCategory(String country) {
+    public LinkedList<CountryCategory> getCountryCategory(String country, Integer year) {
         sendString("countryCategory + " + country);
         try {
             return (LinkedList<CountryCategory>) readMessage.readObject();
