@@ -264,6 +264,9 @@ public class MainScreenController implements Initializable {
     private BorderPane pnCatView;
 
     @FXML
+    private BorderPane bPaneUsersApproval;
+
+    @FXML
     private TextField txtLogin = new TextField();
 
     @FXML
@@ -317,7 +320,7 @@ public class MainScreenController implements Initializable {
     @FXML
     private Label lblUserName;
     @FXML
-    private Label lblUserRole;
+    private Label lblRole;
     @FXML
     private Label lblLastAccess;
     @FXML
@@ -495,6 +498,10 @@ public class MainScreenController implements Initializable {
         if (pnSettingsView.isVisible() == false) {
             pnSettingsView.setVisible(true);
             getAllMessages();
+            lblUserName.setText(CurrentUser.getUser().getLogin());
+            lblRole.setText(CurrentUser.getUser().getRole());
+
+            cmbChooseUserCountry.setValue(CurrentUser.getUser().getCountry());
             new FadeInDown(pnSettingsView).play();
             pnCountryView.setVisible(false);
             pnCategoryView.setVisible(false);
@@ -540,6 +547,7 @@ public class MainScreenController implements Initializable {
             FxmlLoader object = new FxmlLoader();
             Pane view = object.getPane("UserTable.fxml");
             borderPnUsers.setCenter(view);
+            showUsersToApprove();
             FxmlLoader object1 = new FxmlLoader();
             Pane chart = object1.getPane("UserChart.fxml");
             pnUserChart.setCenter(chart);
@@ -638,6 +646,12 @@ public class MainScreenController implements Initializable {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CatPercentExportChart.fxml");
         pnCatView.setCenter(view);
+    }
+
+    public void showUsersToApprove() {
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPane("UserApproveRoleTable.fxml");
+        bPaneUsersApproval.setCenter(view);
     }
 
     @FXML

@@ -21,4 +21,14 @@ public class UsersManager  extends ConnectionManager {
         }
         return null;
     }
+
+    public LinkedList<Integer> getUsersToApprove() {
+        sendString("usersToApprove");
+        try {
+            return (LinkedList<Integer>) readMessage.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
