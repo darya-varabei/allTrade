@@ -132,27 +132,30 @@ public class UserTableController implements Initializable {
     }
 
     @FXML private void addUser() {
-        String response = "";
+//        String response = "";
         UserInfo userAdd = new UserInfo(0, txtLogin.getText(), txtPassword.getText(), cmbChooseUserCountry.getValue(), "", cmbChooseRole.getValue());
-        Connection.usersManager.sendObject("addUser", userAdd);
-        if ((response = Connection.connectionManager.readString()) == "success") {
+        if(userAdd.addUser() == "success") {
+            //        Connection.usersManager.sendObject("addUser", userAdd);
+//        if ((response = Connection.connectionManager.readString()) == "success") {
             dataList.add(userAdd);
             userTable.refresh();
         }
+//        }
     }
 
     @FXML private void updateUser() {
-        String response = "";
+//        String response = "";
         user = userTable.getSelectionModel().getSelectedItem();
         user.setLogin(txtLogin.getText());
         user.setPassword(txtPassword.getText());
         user.setCountry(cmbChooseUserCountry.getValue());
         user.setCountry(cmbChooseRole.getValue());
-        Connection.connectionManager.sendObject("updateUser", user);
-        if ((response = Connection.connectionManager.readString()) == "success") {
+//        Connection.connectionManager.sendObject("updateUser", user);
+//        if ((response = Connection.connectionManager.readString()) == "success") {
+        if(user.updateUser() == "success"){
             removeUser(user.getId());
             dataList.add(user);
-        }
+       }
     }
 
     @FXML private void deleteUser() {

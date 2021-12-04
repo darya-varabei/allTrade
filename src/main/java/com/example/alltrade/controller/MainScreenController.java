@@ -4,6 +4,8 @@ import animatefx.animation.*;
 import com.example.alltrade.FxmlLoader;
 import com.example.alltrade.connector.Connection;
 import com.example.alltrade.model.country.Country;
+import com.example.alltrade.model.country.CountryConstants;
+import com.example.alltrade.model.country.CountryImportExport;
 import com.example.alltrade.model.user.CurrentUser;
 import com.example.alltrade.model.user.UserInfo;
 import javafx.collections.FXCollections;
@@ -237,7 +239,7 @@ public class MainScreenController implements Initializable {
     private Label lblPopValue1;
 
     @FXML
-    private ComboBox<?> cmbChooseCountry1;
+    private ComboBox<String> cmbChooseCategory;
 
     @FXML
     private ComboBox<Integer> cmbChooseYear;
@@ -321,12 +323,20 @@ public class MainScreenController implements Initializable {
     @FXML private void fillUpComboBox() {
         ObservableList<String> data;
         ObservableList<Integer> years;
+        ObservableList<String> categories;
         data = FXCollections.observableArrayList(Connection.connectionManager.getStrings("countries"));
         years = FXCollections.observableArrayList(Connection.connectionManager.getYears());
+        categories = FXCollections.observableArrayList(Connection.connectionManager.getStrings("categories"));
         cmbChooseCountry.setItems(data);
+        cmbChooseCategory.setItems(categories);
         cmbChooseYear.setItems(years);
+        cmbChooseCategory.setOnAction(e -> enableCategory());
         cmbChooseCountry.setOnAction(e -> enableCountry());
         cmbChooseYear.setOnAction(e -> enableCountryAndYears());
+    }
+
+    private void enableCategory() {
+
     }
 
     private void enableCountry() {
@@ -515,6 +525,7 @@ public class MainScreenController implements Initializable {
     public void showCountryCommonTable() {
         FxmlLoader object = new FxmlLoader();
         Pane view = object.getPane("CountryTable.fxml");
+        CountryConstants.country = cmbChooseCountry.getValue();
         lblCommonExpImpPlot.setText("Общая таблица импорта и экспорта");
         mainPane.setCenter(view);
     }

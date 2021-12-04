@@ -55,12 +55,12 @@ public class CountryCatTableController implements Initializable {
         exportColumn.setCellValueFactory(new PropertyValueFactory<>("exportValue"));
         importColumn.setCellValueFactory(new PropertyValueFactory<>("importValue"));
 
-        CountryCategory case1 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
-        CountryCategory case2 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
-        CountryCategory case3 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
-        CountryCategory case4 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
-        CountryCategory case5 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
-        dataList.addAll(case1, case2, case3, case4, case5);
+//        CountryCategory case1 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
+//        CountryCategory case2 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
+//        CountryCategory case3 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
+//        CountryCategory case4 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
+//        CountryCategory case5 = new CountryCategory(1, 2009, 2345.89, 12456.9,"Food");
+        dataList.addAll(CountryCategory.setupTableData());
 
         FilteredList<CountryCategory> filteredData = new FilteredList<>(dataList, b -> true);
         predicateField.textProperty().addListener((observable, oldValue, newvalue) -> {

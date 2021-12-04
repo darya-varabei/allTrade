@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="453.0" prefWidth="773.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@inputView.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alltrade.controller.table.CountryTableController">
    <children>
-      <TableView fx:id="tableCountry" onMouseClicked="#clickItem" editable="true" layoutY="68.0" prefHeight="272.0" prefWidth="465.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
+      <TableView fx:id="tableCountry" editable="true" layoutY="68.0" onMouseClicked="#clickItem" prefHeight="272.0" prefWidth="465.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@tableStyle.css">
         <columns>
           <TableColumn fx:id="yearColumn" prefWidth="75.0" resizable="false" text="Год" />
           <TableColumn fx:id="importColumn" prefWidth="130.0" resizable="false" text="Импорт" />
@@ -65,5 +65,6 @@
             <Font name="SF Compact Text Regular" size="11.0" />
          </font>
       </Button>
+      <Label fx:id="lblInvalidinput" layoutX="549.0" layoutY="283.0" stylesheets="@errorMessage.css" text="Некорректный ввод" visible="false" />
    </children>
 </AnchorPane>

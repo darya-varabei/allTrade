@@ -1,5 +1,9 @@
 package com.example.alltrade.model.country;
 
+import com.example.alltrade.connector.Connection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -43,5 +47,11 @@ public class CountryCategory extends CountryMain implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(countryId, year, importValue, exportValue, category);
+    }
+
+    public static ObservableList<CountryCategory> setupTableData() {
+        ObservableList<CountryCategory> data;
+        data = FXCollections.observableArrayList(Connection.countryManager.getCountryCategory(CountryConstants.country));
+        return data;
     }
 }

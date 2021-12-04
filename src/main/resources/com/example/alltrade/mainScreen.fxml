@@ -294,7 +294,7 @@
                   <Font name="SF Compact Text Regular" size="15.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cmbChooseCountry1" layoutX="26.0" layoutY="101.0" prefHeight="28.0" prefWidth="192.0" promptText="Выберите категорию" style="-fx-background-color: 0; -fx-border-color: #fafafa; -fx-border-radius: 10;  -fx-text-base-color: #fafafa" />
+            <ComboBox fx:id="cmbChooseCategory" layoutX="26.0" layoutY="101.0" prefHeight="28.0" prefWidth="192.0" promptText="Выберите категорию" style="-fx-background-color: 0; -fx-border-color: #fafafa; -fx-border-radius: 10;  -fx-text-base-color: #fafafa" />
          </children></Pane>
       <Pane fx:id="pnCountryView" layoutX="100.0" prefHeight="740.0" prefWidth="1070.0" style="-fx-background-color: 0; visibility: false;" visible="false">
          <children>

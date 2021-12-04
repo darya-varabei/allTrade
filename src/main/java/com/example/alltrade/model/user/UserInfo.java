@@ -1,5 +1,7 @@
 package com.example.alltrade.model.user;
 
+import com.example.alltrade.connector.Connection;
+
 import java.io.Serializable;
 
 public class UserInfo extends User implements Serializable {
@@ -46,5 +48,19 @@ public class UserInfo extends User implements Serializable {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String addUser() {
+        String response = "";
+        Connection.usersManager.sendObject("addUser", this);
+        response = Connection.connectionManager.readString();
+        return response;
+    }
+
+    public String updateUser() {
+        String response = "";
+        Connection.connectionManager.sendObject("updateUser", this);
+        response = Connection.connectionManager.readString();
+        return response;
     }
 }

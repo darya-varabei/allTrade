@@ -43,12 +43,12 @@ public class CategoryExportTableController implements Initializable {
         countryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
         exportColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
 
-        CategoryValue case1 = new CategoryValue(1, "Italy", 2009, 12456.9);
-        CategoryValue case2 = new CategoryValue(1, "Sweden", 2009, 12456.9);
-        CategoryValue case3 = new CategoryValue(1, "Spain", 2009, 12456.9);
-        CategoryValue case4 = new CategoryValue(1, "Russia", 2009, 12456.9);
-        CategoryValue case5 = new CategoryValue(1, "USA", 2009, 12456.9);
-        dataList.addAll(case1, case2, case3, case4, case5);
+//        CategoryValue case1 = new CategoryValue(1, "Italy", 2009, 12456.9);
+//        CategoryValue case2 = new CategoryValue(1, "Sweden", 2009, 12456.9);
+//        CategoryValue case3 = new CategoryValue(1, "Spain", 2009, 12456.9);
+//        CategoryValue case4 = new CategoryValue(1, "Russia", 2009, 12456.9);
+//        CategoryValue case5 = new CategoryValue(1, "USA", 2009, 12456.9);
+        dataList.addAll(CategoryValue.setupTableData("export"));
 
         FilteredList<CategoryValue> filteredData = new FilteredList<>(dataList, b -> true);
         predicateField.textProperty().addListener((observable, oldValue, newvalue) -> {

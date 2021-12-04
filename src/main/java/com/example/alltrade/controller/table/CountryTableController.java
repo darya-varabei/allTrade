@@ -67,6 +67,8 @@ public class CountryTableController implements Initializable {
     @FXML
     private Button clearDataButton;
 
+    @FXML private Label lblInvalidInput;
+
     CurrentUser user;
 
     @FXML
@@ -74,10 +76,10 @@ public class CountryTableController implements Initializable {
         if (txtCountry.getText() != "" && txtImport.getText() != "" && txtExport.getText() != "") {
             CountryImportExport dataAdd = new CountryImportExport(1, txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
             Connection.connectionManager.sendObject("addCountry", dataAdd);
-            //lblInvalidInput.setVisible(false);
+            lblInvalidInput.setVisible(false);
         }
         else {
-           // lblInvalidInput.setVisible(true);
+            lblInvalidInput.setVisible(true);
         }
     }
 
@@ -94,10 +96,10 @@ public class CountryTableController implements Initializable {
         if (cmbChooseYear.getValue() != "Выберите год" && txtImport.getText() != "" && txtExport.getText() != "" && txtCountry.getText() != "") {
             CountryImportExport dataUpd = new CountryImportExport(0, txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
             Connection.connectionManager.sendObject("deleteCountry", dataUpd);
-            // lblInvalidInput.setVisible(false);
+             lblInvalidInput.setVisible(false);
         }
         else {
-            // lblInvalidInput.setVisible(true);
+             lblInvalidInput.setVisible(true);
         }
     }
 
@@ -106,10 +108,10 @@ public class CountryTableController implements Initializable {
         if (cmbChooseYear.getValue() != "Выберите год" && txtImport.getText() != "" && txtExport.getText() != "" && txtCountry.getText() != "") {
             CountryImportExport dataUpd = new CountryImportExport(0, txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
             Connection.connectionManager.sendObject("editCountry", dataUpd);
-           // lblInvalidInput.setVisible(false);
+            lblInvalidInput.setVisible(false);
         }
         else {
-           // lblInvalidInput.setVisible(true);
+            lblInvalidInput.setVisible(true);
         }
     }
 
@@ -132,12 +134,12 @@ public class CountryTableController implements Initializable {
         ExportColumn.setCellValueFactory(new PropertyValueFactory<>("ExportValue"));
         netExportColumn.setCellValueFactory(new PropertyValueFactory<>("netExport"));
 
-        CountryImportExport case1 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
-        CountryImportExport case2 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
-        CountryImportExport case3 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
-        CountryImportExport case4 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
-        CountryImportExport case5 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
-  dataList.addAll(case1, case2, case3, case4, case5);
+//        CountryImportExport case1 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
+//        CountryImportExport case2 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
+//        CountryImportExport case3 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
+//        CountryImportExport case4 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
+//        CountryImportExport case5 = new CountryImportExport(1, "Italy", 2009, 2345.89, 12456.9,3256.0);
+  dataList.addAll(CountryImportExport.setupTableData());
 
   FilteredList<CountryImportExport> filteredData = new FilteredList<>(dataList, b -> true);
   predicateField.textProperty().addListener((observable, oldValue, newvalue) -> {
