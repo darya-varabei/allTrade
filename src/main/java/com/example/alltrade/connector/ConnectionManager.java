@@ -69,6 +69,16 @@ public class ConnectionManager {
         return null;
     }
 
+    public Double readValue() {
+        try {
+            return (Double)readMessage.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public LinkedList<String> getStrings(String code) {
         sendString(code);
         try {

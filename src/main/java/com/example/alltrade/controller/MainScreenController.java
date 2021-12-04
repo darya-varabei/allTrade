@@ -3,6 +3,7 @@ package com.example.alltrade.controller;
 import animatefx.animation.*;
 import com.example.alltrade.FxmlLoader;
 import com.example.alltrade.connector.Connection;
+import com.example.alltrade.model.category.CategoryInfo;
 import com.example.alltrade.model.country.Country;
 import com.example.alltrade.model.country.CountryConstants;
 import com.example.alltrade.model.country.CountryImportExport;
@@ -239,10 +240,19 @@ public class MainScreenController implements Initializable {
     private Label lblPopValue1;
 
     @FXML
+    private Label lblAllExport;
+
+    @FXML
+    private Label lblNumOfCountries;
+
+    @FXML
     private ComboBox<String> cmbChooseCategory;
 
     @FXML
     private ComboBox<Integer> cmbChooseYear;
+
+    @FXML
+    private ComboBox<Integer> cmbChooseCategoryYear;
 
     @FXML
     private Pane pnTablePane;
@@ -300,6 +310,10 @@ public class MainScreenController implements Initializable {
 
     private Connection connection;
 
+    @FXML private Button btnCatTableExport;
+
+    @FXML private Button btnCatTableImport;
+
     @FXML
     private Label lblUserName;
     @FXML
@@ -320,6 +334,11 @@ public class MainScreenController implements Initializable {
         }
     }
 
+    private void getCategoryData() {
+        Connection.connectionManager.sendString("categoryData");
+
+    }
+
     @FXML private void fillUpComboBox() {
         ObservableList<String> data;
         ObservableList<Integer> years;
@@ -330,17 +349,40 @@ public class MainScreenController implements Initializable {
         cmbChooseCountry.setItems(data);
         cmbChooseCategory.setItems(categories);
         cmbChooseYear.setItems(years);
+        cmbChooseCategoryYear.setItems(years);
+        cmbChooseCategoryYear.setOnAction(e -> enableYearCategory());
         cmbChooseCategory.setOnAction(e -> enableCategory());
         cmbChooseCountry.setOnAction(e -> enableCountry());
         cmbChooseYear.setOnAction(e -> enableCountryAndYears());
     }
 
-    private void enableCategory() {
+    private void enableYearCategory() {
+        CountryConstants.categoryYear = cmbChooseCategoryYear.getValue();
+        if (cmbChooseCategory.getValue() != "Выберите категорию") {
+            btnExportShare.setDisable(false);
+            btnImportShare.setDisable(false);
+        }
+    }
 
+    private void enableCategory() {
+        CountryConstants.category = cmbChooseCategory.getValue();
+        CategoryInfo categoryInfo;
+        btnWorldExport.setDisable(false);
+        btnCatTableExport.setDisable(false);
+        btnCatTableImport.setDisable(false);
+        if (cmbChooseCategoryYear.getValue() != 0) {
+            Connection.connectionManager.sendString(CountryConstants.category + " " + cmbChooseCategoryYear.getValue() + " " + "info");
+            categoryInfo = (CategoryInfo)Connection.connectionManager.readObject();
+            lblAllExport.setText(categoryInfo.getTotalExport() + " $млн");
+            lblNumOfCountries.setText(categoryInfo.getNumOfExporters() + " стран");
+            btnExportShare.setDisable(false);
+            btnImportShare.setDisable(false);
+        }
     }
 
     private void enableCountry() {
         showCountryInfo();
+        CountryConstants.country = cmbChooseCountry.getValue();
         btnImageTable1.setDisable(false);
         btnImageTable2.setDisable(false);
         btnChartCountry.setDisable(false);
@@ -370,13 +412,12 @@ public class MainScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPane("UserTable.fxml");
-        borderPnUsers.setCenter(view);
-        FxmlLoader object1 = new FxmlLoader();
-        Pane chart = object1.getPane("UserChart.fxml");
-        pnUserChart.setCenter(chart);
+//        FxmlLoader object = new FxmlLoader();
+//        Pane view = object.getPane("UserTable.fxml");
+//        borderPnUsers.setCenter(view);
+//        FxmlLoader object1 = new FxmlLoader();
+//        Pane chart = object1.getPane("UserChart.fxml");
+//        pnUserChart.setCenter(chart);
     }
 
     @FXML
@@ -496,6 +537,12 @@ public class MainScreenController implements Initializable {
     @FXML
     void showUsers() {
         if (pnUsersView.isVisible() == false) {
+            FxmlLoader object = new FxmlLoader();
+            Pane view = object.getPane("UserTable.fxml");
+            borderPnUsers.setCenter(view);
+            FxmlLoader object1 = new FxmlLoader();
+            Pane chart = object1.getPane("UserChart.fxml");
+            pnUserChart.setCenter(chart);
             pnUsersView.setVisible(true);
             new FadeInDown(pnUsersView).play();
             pnUsersView.toFront();

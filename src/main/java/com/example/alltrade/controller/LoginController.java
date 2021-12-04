@@ -1,21 +1,27 @@
 package com.example.alltrade.controller;
 
+import com.example.alltrade.HelloApplication;
 import com.example.alltrade.connector.Connection;
 import com.example.alltrade.connector.ConnectionManager;
 import com.example.alltrade.model.user.CurrentUser;
 import com.example.alltrade.model.user.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import animatefx.animation.*;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LoginController {
         @FXML
@@ -129,45 +135,46 @@ public class LoginController {
         }
     }
 
-    @FXML private void completeLogin(ActionEvent event) {
-        manager.sendObject("authorize", new User(login.getText(), loPassword.getText()));
-        if(CurrentUser.getInstance((CurrentUser) manager.readObject()) != null) {
+    @FXML private AnchorPane pnRoot;
+    @FXML private void completeLogin(ActionEvent event) throws IOException {
+//        manager.sendObject("authorize", new User(login.getText(), loPassword.getText()));
+//        if(CurrentUser.getInstance((CurrentUser) manager.readObject()) != null) {
             Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             primaryStage.setScene(secondScene);
-        }
-        else {
-            CurrentUser.nullInstance();
-            lblLoginError.setVisible(true);
-        }
+//        }
+//        else {
+//            CurrentUser.nullInstance();
+//            lblLoginError.setVisible(true);
+//        }
     }
 
     @FXML
     private void connect() {
-        var connection = new Connection();
-        if (txtPort.getText().isEmpty() == false && txtAdress.getText().isEmpty() == false && txtPort.getText().matches("[1-9]+")) {
-            connection.connectToServer(
-                    txtAdress.getText(), Integer.parseInt(txtPort.getText())
-            );
-            manager = connection.connectionManager;
-
-            if (manager != null) {
-                lblConnectionError.setVisible(false);
+//        var connection = new Connection();
+//        if (txtPort.getText().isEmpty() == false && txtAdress.getText().isEmpty() == false && txtPort.getText().matches("[1-9]+")) {
+//            connection.connectToServer(
+//                    txtAdress.getText(), Integer.parseInt(txtPort.getText())
+//            );
+//            manager = connection.connectionManager;
+//
+//            if (manager != null) {
+//                lblConnectionError.setVisible(false);
                 new SlideOutLeft(connectionPane).play();
                 new SlideInLeft(authoPane).play();
                 connectionPane.toBack();
                 authoPane.toFront();
                 registButton.setDisable(false);
                 authoButton.setDisable(false);
-            } else {
-        lblConnectionError.setVisible(true);
-                lblConnectionError.setVisible(true);
-                lblConnectionError.toFront();
-            }
-        }
-        else {
-        lblConnectionError.setVisible(true);
-            lblConnectionError.setVisible(true);
-            lblConnectionError.toFront();
-        }
+//            } else {
+//        lblConnectionError.setVisible(true);
+//                lblConnectionError.setVisible(true);
+//                lblConnectionError.toFront();
+//            }
+//        }
+//        else {
+//        lblConnectionError.setVisible(true);
+//            lblConnectionError.setVisible(true);
+//            lblConnectionError.toFront();
+//        }
     }
 }
