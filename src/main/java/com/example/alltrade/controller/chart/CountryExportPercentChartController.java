@@ -29,7 +29,7 @@ public class CountryExportPercentChartController implements Initializable {
 //        chartExportShare.setData(pieChartData);
 
         ObservableList<CountryCategory> data;
-        data = FXCollections.observableArrayList(Connection.countryManager.getCountryCategory(CountryConstants.country, CountryConstants.year));
+        data = FXCollections.observableArrayList(Connection.countryManager.getCountryShare(CountryConstants.country, CountryConstants.year));
         var pieChartData = new LinkedList<PieChart.Data>();
 
         data.forEach((category) -> {

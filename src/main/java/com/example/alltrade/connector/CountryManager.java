@@ -24,7 +24,7 @@ public class CountryManager  extends ConnectionManager {
         return null;
     }
 
-    public LinkedList<CountryCategory> getCountryCategory(String country, Integer year) {
+    public LinkedList<CountryCategory> getCountryCategory(String country) {
         sendString("countryCategory + " + country);
         try {
             return (LinkedList<CountryCategory>) readMessage.readObject();
@@ -34,10 +34,10 @@ public class CountryManager  extends ConnectionManager {
         return null;
     }
 
-    public LinkedList<CountryShare> getCountryShare(String country) {
-        sendString("countryShare + " + country);
+    public LinkedList<CountryCategory> getCountryShare(String country, Integer year) {
+        sendString("countryShare + " + country + " " + year);
         try {
-            return (LinkedList<CountryShare>) readMessage.readObject();
+            return (LinkedList<CountryCategory>) readMessage.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
