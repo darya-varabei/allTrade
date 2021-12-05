@@ -9,18 +9,14 @@ import java.util.Objects;
 
 public class CountryImportExport extends CountryMain implements Serializable {
 
-    private String country;
     private Double netExport;
 
-    public CountryImportExport(Integer countryId, String country, Integer year, Double importValue, Double exportValue, Double netExport) {
-        super(countryId, year, importValue, exportValue);
-        this.country = country;
+    public CountryImportExport(Integer year, Double importValue, Double exportValue, Double netExport) {
+        super(year, importValue, exportValue);
         this.netExport = netExport;
     }
 
     public CountryImportExport() { }
-
-    public CountryImportExport(Integer countryId) { super(countryId); }
 
     public Double getNetExport() {
         return netExport;
@@ -30,27 +26,19 @@ public class CountryImportExport extends CountryMain implements Serializable {
         this.netExport = netExport;
     };
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    };
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CountryImportExport countryData = (CountryImportExport) o;
-        return countryId == super.countryId && year == super.year &&
+        return year == super.year &&
                 importValue == super.importValue && exportValue == super.exportValue &&
                 netExport == countryData.netExport;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.countryId, super.year, super.importValue, super.exportValue, netExport);
+        return Objects.hash(super.year, super.importValue, super.exportValue, netExport);
     }
 
     public static ObservableList<CountryImportExport> setupTableData() {

@@ -1,6 +1,8 @@
 package com.example.alltrade.controller.table;
 
 import com.example.alltrade.connector.Connection;
+import com.example.alltrade.model.country.CountryAdd;
+import com.example.alltrade.model.country.CountryConstants;
 import com.example.alltrade.model.country.CountryImportExport;
 import com.example.alltrade.model.user.CurrentUser;
 import javafx.collections.FXCollections;
@@ -74,7 +76,7 @@ public class CountryTableController implements Initializable {
     @FXML
     void addData(ActionEvent event) {
         if (txtCountry.getText() != "" && txtImport.getText() != "" && txtExport.getText() != "") {
-            CountryImportExport dataAdd = new CountryImportExport(1, txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
+            CountryImportExport dataAdd = new CountryAdd(txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
             Connection.connectionManager.sendObject("addCountry", dataAdd);
             lblInvalidInput.setVisible(false);
         }
@@ -94,7 +96,7 @@ public class CountryTableController implements Initializable {
     @FXML
     void deleteData(ActionEvent event) {
         if (cmbChooseYear.getValue() != "Выберите год" && txtImport.getText() != "" && txtExport.getText() != "" && txtCountry.getText() != "") {
-            CountryImportExport dataUpd = new CountryImportExport(0, txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
+            CountryImportExport dataUpd = new CountryAdd( txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
             Connection.connectionManager.sendObject("deleteCountry", dataUpd);
              lblInvalidInput.setVisible(false);
         }
@@ -106,7 +108,7 @@ public class CountryTableController implements Initializable {
     @FXML
     void updateData(ActionEvent event) {
         if (cmbChooseYear.getValue() != "Выберите год" && txtImport.getText() != "" && txtExport.getText() != "" && txtCountry.getText() != "") {
-            CountryImportExport dataUpd = new CountryImportExport(0, txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
+            CountryImportExport dataUpd = new CountryAdd(txtCountry.getText(), Integer.parseInt(cmbChooseYear.getValue()), Double.parseDouble(txtImport.getText()), Double.parseDouble(txtExport.getText()), Double.parseDouble(txtExport.getText()) - Double.parseDouble(txtImport.getText()));
             Connection.connectionManager.sendObject("editCountry", dataUpd);
             lblInvalidInput.setVisible(false);
         }
@@ -119,7 +121,7 @@ public class CountryTableController implements Initializable {
     private void clickItem(MouseEvent event) {
         if (event.getClickCount() == 2) {
             model = tableCountry.getSelectionModel().getSelectedItem();
-            txtCountry.setText(model.getCountry());
+            txtCountry.setText(CountryConstants.country);
             txtImport.setText(String.valueOf(model.getImportValue()));
             txtExport.setText(String.valueOf(model.getExportValue()));
             cmbChooseYear.setValue(String.valueOf(model.getYear()));

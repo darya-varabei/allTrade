@@ -8,14 +8,12 @@ public class UserInfo extends User implements Serializable {
     private int id;
     private String country;
     private String lastAccessDate;
-    private String role;
 
     public UserInfo(Integer id, String login, String password, String country, String lastAccessDate, String role) {
-        super(login, password);
+        super(login, password, role);
         this.id = id;
         this.country = country;
         this.lastAccessDate = lastAccessDate;
-        this.role = role;
     }
 
     public int getId() {
@@ -40,14 +38,6 @@ public class UserInfo extends User implements Serializable {
 
     public void setLastAccessDate(String lastAccessDate) {
         this.lastAccessDate = lastAccessDate;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public String addUser() {

@@ -10,18 +10,13 @@ import java.util.Objects;
 public class CountryCategory extends CountryMain implements Serializable {
     private String category;
 
-    public CountryCategory(Integer countryId, Integer year, Double importValue, Double exportValue, String category) {
+    public CountryCategory(Integer year, Double importValue, Double exportValue, String category) {
 
-        super(countryId, year, importValue, exportValue);
+        super(year, importValue, exportValue);
         this.category = category;
     }
 
     public CountryCategory() {
-
-    }
-
-    public CountryCategory(Integer countryId) {
-        super(countryId);
 
     }
 
@@ -38,7 +33,7 @@ public class CountryCategory extends CountryMain implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CountryCategory countryData = (CountryCategory) o;
-        return countryId == super.countryId && year == super.year &&
+        return year == super.year &&
                 importValue == super.importValue && exportValue == super.exportValue &&
                 category == countryData.category;
 
@@ -46,7 +41,7 @@ public class CountryCategory extends CountryMain implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(countryId, year, importValue, exportValue, category);
+        return Objects.hash(year, importValue, exportValue, category);
     }
 
     public static ObservableList<CountryCategory> setupTableData() {

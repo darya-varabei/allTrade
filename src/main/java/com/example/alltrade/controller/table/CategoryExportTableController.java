@@ -65,7 +65,7 @@ public class CategoryExportTableController implements Initializable {
                 else if (String.valueOf(caseCase.getCountry()).indexOf(lowerCaseFilter) != -1) {
                     return true;
                 }
-                else if(String.valueOf(caseCase.getValue()).indexOf(lowerCaseFilter) != -1) {
+                else if(String.valueOf(caseCase.getExportValue()).indexOf(lowerCaseFilter) != -1) {
                     return true;
                 }
                 else {

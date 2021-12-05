@@ -36,7 +36,7 @@ public class CatWorldChartController implements Initializable {
         seriesImport.setName("Import");
 
         data.forEach((year) -> {
-            seriesImport.getData().add(new XYChart.Data(String.valueOf(year.getYear()), year.getValue()));
+            seriesImport.getData().add(new XYChart.Data(String.valueOf(year.getYear()), year.getImportValue()));
         });
 
         CountryChart.getData().addAll(seriesImport);

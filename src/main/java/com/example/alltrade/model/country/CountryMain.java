@@ -4,31 +4,17 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class CountryMain implements Serializable {
-    protected Integer countryId;
     protected Integer year;
     protected Double importValue;
     protected Double exportValue;
 
-    public CountryMain(Integer countryId, Integer year, Double importValue, Double exportValue) {
-        this.countryId = countryId;
+    public CountryMain(Integer year, Double importValue, Double exportValue) {
         this.year = year;
         this.importValue = importValue;
         this.exportValue = exportValue;
     }
 
     public CountryMain() {
-    }
-
-    public CountryMain(Integer countryId) {
-        this.countryId = countryId;
-    }
-
-    public int getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(int authorBook) {
-        this.countryId = countryId;
     }
 
     public int getYear() {
@@ -61,12 +47,12 @@ public class CountryMain implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CountryMain countryData = (CountryMain) o;
-        return countryId == countryData.countryId && year == countryData.year &&
+        return year == countryData.year &&
                 importValue == countryData.importValue && exportValue == countryData.exportValue;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(countryId, year, importValue, exportValue);
+        return Objects.hash(year, importValue, exportValue);
     }
 }

@@ -117,7 +117,7 @@ public class LoginController {
             lblRegistrationError.setVisible(true);
             return;
         }
-        manager.sendObject("regist", new User(login.getText(), loPassword.getText()));
+        manager.sendObject("regist", new User(login.getText(), loPassword.getText(), "Пользователь"));
         if(CurrentUser.getInstance((CurrentUser) manager.readObject()) != null) {
             Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             primaryStage.setScene(secondScene);

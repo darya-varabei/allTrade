@@ -501,7 +501,7 @@ public class MainScreenController implements Initializable {
             lblUserName.setText(CurrentUser.getUser().getLogin());
             lblRole.setText(CurrentUser.getUser().getRole());
 
-            cmbChooseUserCountry.setValue(CurrentUser.getUser().getCountry());
+            cmbChooseUserCountry.setValue(CurrentUser.getUser().getCountry().getName());
             new FadeInDown(pnSettingsView).play();
             pnCountryView.setVisible(false);
             pnCategoryView.setVisible(false);
