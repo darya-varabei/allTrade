@@ -112,69 +112,73 @@ public class LoginController {
     }
 
     @FXML private void completeRegistration(ActionEvent event) {
-        if (loPassword.getText() == repPasswordField.getText()) {
-            lblRegistrationError.setText("Введенные пароли не совпадают");
-            lblRegistrationError.setVisible(true);
-            return;
-        }
-        manager.sendObject("regist", new User(login.getText(), loPassword.getText(), "Пользователь"));
+//        if (loPassword.getText() == repPasswordField.getText()) {
+//            lblRegistrationError.setText("Введенные пароли не совпадают");
+//            lblRegistrationError.setVisible(true);
+//            return;
+//        }
+//        manager.sendObject("regist", new User(login.getText(), loPassword.getText(), "Пользователь"));
+//        if(CurrentUser.getInstance((CurrentUser)manager.readObject()) != null) {
+            Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            primaryStage.setScene(secondScene);
+//        }
+//        else {
+//            CurrentUser.nullInstance();
+//            if (manager.readString() == "exists") {
+//                lblLoginError.setText("Данный логин уже существует");
+//                lblLoginError.setVisible(true);
+//            }
+//            else {
+//                CurrentUser.nullInstance();
+//                lblLoginError.setVisible(true);
+//            }
+//        }
+    }
+
+    @FXML private AnchorPane pnRoot;
+    @FXML private void completeLogin(ActionEvent event) throws IOException {
+//        manager.sendObject("authorize", new User(login.getText(), loPassword.getText(), "Пользователь"));
+//        var currentUser = (CurrentUser)Connection.connectionManager.readObject();
+//        var statUser = CurrentUser.getInstance(currentUser);
+
+        manager.sendObject("authorize", new User(login.getText(), loPassword.getText(), "Пользователь"));
         if(CurrentUser.getInstance((CurrentUser) manager.readObject()) != null) {
             Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             primaryStage.setScene(secondScene);
         }
         else {
             CurrentUser.nullInstance();
-            if (manager.readString() == "exists") {
-                lblLoginError.setText("Данный логин уже существует");
-                lblLoginError.setVisible(true);
-            }
-            else {
-                CurrentUser.nullInstance();
-                lblLoginError.setVisible(true);
-            }
+            lblLoginError.setVisible(true);
         }
-    }
-
-    @FXML private AnchorPane pnRoot;
-    @FXML private void completeLogin(ActionEvent event) throws IOException {
-//        manager.sendObject("authorize", new User(login.getText(), loPassword.getText()));
-//        if(CurrentUser.getInstance((CurrentUser) manager.readObject()) != null) {
-            Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            primaryStage.setScene(secondScene);
-//        }
-//        else {
-//            CurrentUser.nullInstance();
-//            lblLoginError.setVisible(true);
-//        }
     }
 
     @FXML
     private void connect() {
-//        var connection = new Connection();
-//        if (txtPort.getText().isEmpty() == false && txtAdress.getText().isEmpty() == false && txtPort.getText().matches("[1-9]+")) {
-//            connection.connectToServer(
-//                    txtAdress.getText(), Integer.parseInt(txtPort.getText())
-//            );
-//            manager = connection.connectionManager;
-//
-//            if (manager != null) {
-//                lblConnectionError.setVisible(false);
+        var connection = new Connection();
+        if (txtPort.getText().isEmpty() == false && txtAdress.getText().isEmpty() == false && txtPort.getText().matches("[1-9]+")) {
+            connection.connectToServer(
+                    txtAdress.getText(), Integer.parseInt(txtPort.getText())
+            );
+            manager = connection.connectionManager;
+
+            if (manager != null) {
+                lblConnectionError.setVisible(false);
                 new SlideOutLeft(connectionPane).play();
                 new SlideInLeft(authoPane).play();
                 connectionPane.toBack();
                 authoPane.toFront();
                 registButton.setDisable(false);
                 authoButton.setDisable(false);
-//            } else {
-//        lblConnectionError.setVisible(true);
-//                lblConnectionError.setVisible(true);
-//                lblConnectionError.toFront();
-//            }
-//        }
-//        else {
-//        lblConnectionError.setVisible(true);
-//            lblConnectionError.setVisible(true);
-//            lblConnectionError.toFront();
-//        }
+            } else {
+        lblConnectionError.setVisible(true);
+                lblConnectionError.setVisible(true);
+                lblConnectionError.toFront();
+            }
+        }
+        else {
+        lblConnectionError.setVisible(true);
+            lblConnectionError.setVisible(true);
+            lblConnectionError.toFront();
+        }
     }
 }

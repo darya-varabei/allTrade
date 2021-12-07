@@ -43,7 +43,8 @@ public class CountryImportExport extends CountryMain implements Serializable {
 
     public static ObservableList<CountryImportExport> setupTableData() {
         ObservableList<CountryImportExport> data;
-        data = FXCollections.observableArrayList(Connection.countryManager.getCountryImportExport(CountryConstants.country));
+        data = FXCollections.observableArrayList(Connection.connectionManager.getCountryImportExport(CountryConstants.country));
+    System.out.println(data);
         return data;
     }
 }

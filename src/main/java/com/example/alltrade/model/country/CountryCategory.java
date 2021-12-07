@@ -46,7 +46,7 @@ public class CountryCategory extends CountryMain implements Serializable {
 
     public static ObservableList<CountryCategory> setupTableData() {
         ObservableList<CountryCategory> data;
-        data = FXCollections.observableArrayList(Connection.countryManager.getCountryCategory(CountryConstants.country));
+        data = FXCollections.observableArrayList(Connection.connectionManager.getCountryCategory(CountryConstants.country));
         return data;
     }
 }

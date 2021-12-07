@@ -33,16 +33,16 @@ public class CategoryManager extends ConnectionManager {
         }
         return null;
     }
-
-    public LinkedList<CountryShare> getCountryCategory(String constituent) {
-        sendString(constituent);
-        try {
-            return (LinkedList<CountryShare>) readMessage.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+//
+//    public LinkedList<CountryShare> getCountryCategory(String constituent) {
+//        sendString(constituent);
+//        try {
+//            return (LinkedList<CountryShare>) readMessage.readObject();
+//        } catch (IOException | ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
     public LinkedList<CountryShare> getCountryShare(String constituent, Integer year) {
         sendString(constituent + " " + year);

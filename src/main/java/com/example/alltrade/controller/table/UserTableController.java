@@ -1,6 +1,8 @@
 package com.example.alltrade.controller.table;
 
 import com.example.alltrade.connector.Connection;
+import com.example.alltrade.model.country.CountryConstants;
+import com.example.alltrade.model.country.CountryImportExport;
 import com.example.alltrade.model.user.UserInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -72,18 +74,22 @@ public class UserTableController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         loginColumn.setCellValueFactory(new PropertyValueFactory<>("login"));
         countryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
         lastAccessColumn.setCellValueFactory(new PropertyValueFactory<>("lastAccessDate"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
-        Date date1 = new Date();
-        UserInfo case1 = new UserInfo(1, "jerfhg","e4tgh", "Italy", "date1","User");
-        UserInfo case2 = new UserInfo(1, "gtyr","tg4e", "Italy", "date1","User");
-        UserInfo case3 = new UserInfo(1, "uytgc","rtgb4w", "Italy", "","User");
-        UserInfo case4 = new UserInfo(1, "uiyut","4gwtrbrt", "Italy", "date1","User");
-        UserInfo case5 = new UserInfo(1, "uyewt","45htwgy", "Italy"," date1","User");
-        dataList.addAll(case1, case2, case3, case4, case5);
+        ObservableList<UserInfo> data;
+        data = FXCollections.observableArrayList(Connection.usersManager.getAllUsers());
+
+        // Date date1 = new Date();
+//        UserInfo case1 = new UserInfo("1", "jerfhg","e4tgh", "Italy", "date1","User");
+//        UserInfo case2 = new UserInfo("1", "gtyr","tg4e", "Italy", "date1","User");
+//        UserInfo case3 = new UserInfo("1", "uytgc","rtgb4w", "Italy", "","User");
+//        UserInfo case4 = new UserInfo("1", "uiyut","4gwtrbrt", "Italy", "date1","User");
+//        UserInfo case5 = new UserInfo("1", "uyewt","45htwgy", "Italy"," date1","User");
+        dataList.addAll(data);
 
         FilteredList<UserInfo> filteredData = new FilteredList<>(dataList, b -> true);
         predicateField.textProperty().addListener((observable, oldValue, newvalue) -> {
@@ -132,42 +138,43 @@ public class UserTableController implements Initializable {
     }
 
     @FXML private void addUser() {
-//        String response = "";
-        UserInfo userAdd = new UserInfo(0, txtLogin.getText(), txtPassword.getText(), cmbChooseUserCountry.getValue(), "", cmbChooseRole.getValue());
+        String response = "";
+        UserInfo userAdd = new UserInfo("0", txtLogin.getText(), txtPassword.getText(), cmbChooseUserCountry.getValue(), "", cmbChooseRole.getValue());
         if(userAdd.addUser() == "success") {
-            //        Connection.usersManager.sendObject("addUser", userAdd);
-//        if ((response = Connection.connectionManager.readString()) == "success") {
+                    Connection.usersManager.sendObject("addUser", userAdd);
+        if ((response = Connection.connectionManager.readString()) == "success") {
             dataList.add(userAdd);
             userTable.refresh();
         }
-//        }
+        }
     }
 
     @FXML private void updateUser() {
-//        String response = "";
+        String response = "";
         user = userTable.getSelectionModel().getSelectedItem();
         user.setLogin(txtLogin.getText());
         user.setPassword(txtPassword.getText());
         user.setCountry(cmbChooseUserCountry.getValue());
         user.setCountry(cmbChooseRole.getValue());
-//        Connection.connectionManager.sendObject("updateUser", user);
-//        if ((response = Connection.connectionManager.readString()) == "success") {
-        if(user.updateUser() == "success"){
-            removeUser(user.getId());
-            dataList.add(user);
-       }
+        Connection.connectionManager.sendObject("updateUser", user);
+        if ((response = Connection.connectionManager.readString()) == "success") {
+            if (user.updateUser() == "success") {
+                removeUser(Integer.parseInt(user.getId()));
+                dataList.add(user);
+            }
+        }
     }
 
     @FXML private void deleteUser() {
         user = userTable.getSelectionModel().getSelectedItem();
-        removeUser(user.getId());
+        removeUser(Integer.parseInt(user.getId()));
         Connection.connectionManager.sendObject("deleteUser", String.valueOf(user.getId()));
         userTable.refresh();
     }
 
     private void removeUser(int id) {
         dataList.forEach((tab) -> {
-            if (tab.getId() == id) {
+            if (tab.getId() == String.valueOf(id)) {
                 dataList.remove(tab);
             }
         });

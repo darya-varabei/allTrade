@@ -8,10 +8,13 @@ public class CurrentUser extends User {
     private Country country;
     private String lastAccessDate;
 
-    private CurrentUser(String login, String password, Country country, String role, String lastAccessDate) {
+    private CurrentUser(String login, String password, Country country, String role) {
         super(login, password, role);
         this.country = country;
-        this.lastAccessDate = lastAccessDate;
+    }
+
+    public CurrentUser() {
+        super("", "", "");
     }
 
     public Country getCountry() {
@@ -32,7 +35,7 @@ public class CurrentUser extends User {
 
     public static CurrentUser getInstance(CurrentUser user) {//(String login, String password, String country, String role) {
         if (instance == null) {
-            instance = new CurrentUser(user.login, user.password, user.country, user.role, user.lastAccessDate);
+            instance = new CurrentUser(user.login, user.password, user.country, user.role);
         }
         return instance;
     }

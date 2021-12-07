@@ -5,22 +5,22 @@ import com.example.alltrade.connector.Connection;
 import java.io.Serializable;
 
 public class UserInfo extends User implements Serializable {
-    private int id;
+    private String id;
     private String country;
     private String lastAccessDate;
 
-    public UserInfo(Integer id, String login, String password, String country, String lastAccessDate, String role) {
+    public UserInfo(String id, String login, String password, String country, String lastAccessDate, String role) {
         super(login, password, role);
         this.id = id;
         this.country = country;
         this.lastAccessDate = lastAccessDate;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

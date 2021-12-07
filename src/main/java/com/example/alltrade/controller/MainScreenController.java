@@ -327,7 +327,7 @@ public class MainScreenController implements Initializable {
     private ListView listMessages;
     private Boolean dataFlag = false;
 
-    private UserInfo user = new UserInfo(0, "", "", "", "", "");
+    private UserInfo user = new UserInfo("0", "", "", "", "", "");
 
     @FXML private void setupData() {
         if (dataFlag == false) {
@@ -384,15 +384,15 @@ public class MainScreenController implements Initializable {
     }
 
     private void enableCountry() {
-        showCountryInfo();
-        CountryConstants.country = cmbChooseCountry.getValue();
+        //showCountryInfo();
+        CountryConstants.country = "Бельгия";
         btnImageTable1.setDisable(false);
         btnImageTable2.setDisable(false);
         btnChartCountry.setDisable(false);
-        if (cmbChooseYear.getValue() != 0) {
+        //if (cmbChooseYear.getValue() != 0) {
             btnImportStructure.setDisable(false);
             btnExportStructure.setDisable(false);
-        }
+      //  }
     }
 
     @FXML private void showCountryInfo() {

@@ -130,7 +130,7 @@ public class CountryTableController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setupAccess();
+        //setupAccess();
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
         importColumn.setCellValueFactory(new PropertyValueFactory<>("importValue"));
         ExportColumn.setCellValueFactory(new PropertyValueFactory<>("ExportValue"));

@@ -31,7 +31,7 @@ public class CountryCommonChartController  implements Initializable {
         CountryChart.getData().removeAll(CountryChart.getData());
 
         ObservableList<CountryImportExport> data;
-        data = FXCollections.observableArrayList(Connection.countryManager.getCountryImportExport(CountryConstants.country));
+        data = FXCollections.observableArrayList(Connection.connectionManager.getCountryImportExport(CountryConstants.country));
         XYChart.Series seriesImport = new XYChart.Series();
         XYChart.Series seriesExport = new XYChart.Series();
 

@@ -12,8 +12,8 @@ public class UsersManager  extends ConnectionManager {
         super(clientSocket);
     }
 
-    public LinkedList<UserInfo> getAllUsers(String country) {
-        sendString("allUsers + " + country);
+    public LinkedList<UserInfo> getAllUsers() {
+        sendString("AllUsers");
         try {
             return (LinkedList<UserInfo>) readMessage.readObject();
         } catch (IOException | ClassNotFoundException e) {
