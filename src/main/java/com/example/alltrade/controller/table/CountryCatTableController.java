@@ -49,7 +49,7 @@ public class CountryCatTableController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //setupAccess();
+        setupAccess();
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
         exportColumn.setCellValueFactory(new PropertyValueFactory<>("exportValue"));

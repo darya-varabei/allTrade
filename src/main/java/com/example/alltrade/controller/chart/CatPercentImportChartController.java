@@ -30,7 +30,7 @@ public class CatPercentImportChartController  implements Initializable {
 //        chartImportShare.setData(pieChartData);
 
         ObservableList<CountryShare> data;
-        data = FXCollections.observableArrayList(Connection.categoryManager.getCountryShare(CountryConstants.country, CountryConstants.year));
+        data = FXCollections.observableArrayList(Connection.categoryManager.getCategoryShare("import", CountryConstants.country, CountryConstants.year));
         var pieChartData = new LinkedList<PieChart.Data>();
 
         data.forEach((category) -> {

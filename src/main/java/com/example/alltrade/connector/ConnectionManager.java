@@ -105,27 +105,27 @@ public class ConnectionManager {
         return null;
     }
 
-    public LinkedList<CountryImportExport> getCountryImportExport(String country) {
-        sendString("countryTable");
-        sendString(country);
-        try {
-            return (LinkedList<CountryImportExport>) readMessage.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public LinkedList<CountryCategory> getCountryCategory(String country) {
-        sendString("countryTable2");
-        sendString(country);
-        try {
-            return (LinkedList<CountryCategory>) readMessage.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+//    public LinkedList<CountryImportExport> getCountryImportExport(String country) {
+//        sendString("countryTable");
+//        sendString(country);
+//        try {
+//            return (LinkedList<CountryImportExport>) readMessage.readObject();
+//        } catch (IOException | ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+//
+//    public LinkedList<CountryCategory> getCountryCategory(String country) {
+//        sendString("countryTable2");
+//        sendString(country);
+//        try {
+//            return (LinkedList<CountryCategory>) readMessage.readObject();
+//        } catch (IOException | ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
 //    public LinkedList<Category> getCategoryList(String constituent, Integer year) {
 //        sendString(constituent + "" + String.valueOf(year));

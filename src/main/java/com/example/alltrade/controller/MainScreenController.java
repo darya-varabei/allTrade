@@ -23,6 +23,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -373,14 +375,14 @@ public class MainScreenController implements Initializable {
         btnWorldExport.setDisable(false);
         btnCatTableExport.setDisable(false);
         btnCatTableImport.setDisable(false);
-        if (cmbChooseCategoryYear.getValue() != 0) {
+        //if (cmbChooseCategoryYear.getValue() != 0) {
             Connection.connectionManager.sendString(CountryConstants.category + " " + cmbChooseCategoryYear.getValue() + " " + "info");
             categoryInfo = (CategoryInfo)Connection.connectionManager.readObject();
             lblAllExport.setText(categoryInfo.getTotalExport() + " $млн");
             lblNumOfCountries.setText(categoryInfo.getNumOfExporters() + " стран");
             btnExportShare.setDisable(false);
             btnImportShare.setDisable(false);
-        }
+       // }
     }
 
     private void enableCountry() {
@@ -497,7 +499,7 @@ public class MainScreenController implements Initializable {
     void showSettings() {
         if (pnSettingsView.isVisible() == false) {
             pnSettingsView.setVisible(true);
-            getAllMessages();
+            //getAllMessages();
             lblUserName.setText(CurrentUser.getUser().getLogin());
             lblRole.setText(CurrentUser.getUser().getRole());
 
@@ -547,7 +549,7 @@ public class MainScreenController implements Initializable {
             FxmlLoader object = new FxmlLoader();
             Pane view = object.getPane("UserTable.fxml");
             borderPnUsers.setCenter(view);
-            showUsersToApprove();
+            //showUsersToApprove();
             FxmlLoader object1 = new FxmlLoader();
             Pane chart = object1.getPane("UserChart.fxml");
             pnUserChart.setCenter(chart);
@@ -583,6 +585,7 @@ public class MainScreenController implements Initializable {
         CountryConstants.country = cmbChooseCountry.getValue();
         lblCommonExpImpPlot.setText("Общая таблица импорта и экспорта");
         mainPane.setCenter(view);
+        mainPane.toFront();
     }
 
     public void showCountryCatTable() {
@@ -590,6 +593,7 @@ public class MainScreenController implements Initializable {
         Pane view = object.getPane("CountryCatTable.fxml");
         lblCommonExpImpPlot.setText("Таблица импорта и экспорта по категориям");
         mainPane.setCenter(view);
+        mainPane.toFront();
     }
 
     public void showCatImportTable() {

@@ -1,6 +1,8 @@
 package com.example.alltrade.model.country;
 
-public class CountryAdd extends CountryImportExport {
+import java.io.Serializable;
+
+public class CountryAdd extends CountryImportExport  implements Serializable {
     private String country;
 
     public CountryAdd(String country, Integer year, Double importValue, Double exportValue, Double netExport) {

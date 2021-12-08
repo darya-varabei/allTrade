@@ -2,7 +2,9 @@ package com.example.alltrade.model.user;
 
 import com.example.alltrade.model.country.Country;
 
-public class CurrentUser extends User {
+import java.io.Serializable;
+
+public class CurrentUser extends User  implements Serializable {
 
     private static CurrentUser instance;
     private Country country;

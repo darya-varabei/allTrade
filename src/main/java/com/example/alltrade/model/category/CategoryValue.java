@@ -6,7 +6,9 @@ import com.example.alltrade.model.country.CountryImportExport;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class CategoryValue extends Category{
+import java.io.Serializable;
+
+public class CategoryValue extends Category implements Serializable {
     private int year;
     private String constituent;
     private double exportValue;
@@ -42,7 +44,7 @@ public class CategoryValue extends Category{
         return constituent;
     }
 
-    public void setRole(String netExportValue) {
+    public void setConstituent(String constituent) {
         this.constituent = constituent;
     }
 

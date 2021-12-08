@@ -13,15 +13,15 @@ public class Connection {
     public void connectToServer(String host, int port) {
         try {
             Socket clientSocket = new Socket(host, port);
-//           Socket countrySocket = new Socket(host, port);
-//            Socket categorySocket = new Socket(host, port);
+           Socket countrySocket = new Socket(host, port);
+            Socket categorySocket = new Socket(host, port);
             Socket usersSocket = new Socket(host, port);
-//            Socket messageSocket = new Socket(host, port);
+            Socket messageSocket = new Socket(host, port);
             connectionManager = new ConnectionManager(clientSocket);
-//            countryManager = new CountryManager(countrySocket);
-//            categoryManager = new CategoryManager(categorySocket);
+            countryManager = new CountryManager(countrySocket);
+            categoryManager = new CategoryManager(categorySocket);
             usersManager = new UsersManager(usersSocket);
-//            messageManager = new MessageManager(messageSocket);
+            messageManager = new MessageManager(messageSocket);
 
         } catch (IOException e) {
             e.printStackTrace();

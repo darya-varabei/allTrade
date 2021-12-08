@@ -1,6 +1,8 @@
 package com.example.alltrade.model.country;
 
-public class CountryShare {
+import java.io.Serializable;
+
+public class CountryShare  implements Serializable {
     private String category;
     private Double value;
 

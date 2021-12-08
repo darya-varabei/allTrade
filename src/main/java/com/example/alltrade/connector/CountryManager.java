@@ -14,30 +14,32 @@ public class CountryManager  extends ConnectionManager {
         super(clientSocket);
     }
 
-//    public LinkedList<CountryImportExport> getCountryImportExport(String country) {
-//        sendString("countryTable");
-//        sendString(country);
-//        try {
-//            return (LinkedList<CountryImportExport>) readMessage.readObject();
-//        } catch (IOException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+    public LinkedList<CountryImportExport> getCountryImportExport(String country) {
+        sendString("countryTable");
+        sendString(country);
+        try {
+            return (LinkedList<CountryImportExport>) readMessage.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-//    public LinkedList<CountryCategory> getCountryCategory(String country) {
-//        sendString("countryTable2");
-//        sendString(country);
-//        try {
-//            return (LinkedList<CountryCategory>) readMessage.readObject();
-//        } catch (IOException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+    public LinkedList<CountryCategory> getCountryCategory(String country) {
+        sendString("countryTable2");
+        sendString(country);
+        try {
+            return (LinkedList<CountryCategory>) readMessage.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public LinkedList<CountryCategory> getCountryShare(String country, Integer year) {
-        sendString("countryShare + " + country + " " + year);
+        sendString("share");
+        sendString(country);
+        sendString(String.valueOf(year));
         try {
             return (LinkedList<CountryCategory>) readMessage.readObject();
         } catch (IOException | ClassNotFoundException e) {
